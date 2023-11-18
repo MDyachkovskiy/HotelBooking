@@ -149,13 +149,21 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/hotel_description_block"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp_small"
             android:background="@drawable/hotel_description_block_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hotel_name_block">
+            app:layout_constraintTop_toBottomOf="@id/hotel_name_block"
+            app:layout_constraintBottom_toTopOf="@+id/booking_button_block">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/bottom_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/margin_16dp_medium"/>
 
             <TextView
                 android:id="@+id/hotel_description_title"
@@ -252,7 +260,8 @@
                 android:padding="@dimen/margin_15dp_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/hotel_description_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_hotel_description">
+                app:layout_constraintTop_toBottomOf="@id/tv_hotel_description"
+                app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/facility_block"
@@ -443,6 +452,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
+            android:id="@+id/booking_button_block"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_12dp_small"
