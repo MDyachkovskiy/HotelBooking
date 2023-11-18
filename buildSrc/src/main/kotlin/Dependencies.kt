@@ -32,6 +32,12 @@ object Versions {
 
 }
 
+object Modules  {
+    const val app = ":app"
+    const val core = ":core"
+    const val home = ":home"
+}
+
 object Kotlin{
     const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
 }

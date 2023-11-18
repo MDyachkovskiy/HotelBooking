@@ -43,4 +43,10 @@
         <item name="fontFamily">@font/sf_pro_display_500</item>
     </style>
 
+    <style name="hotel_peculiarities_style">
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textColor">@color/peculiarities_text_color</item>
+        <item name="fontFamily">@font/sf_pro_display_500</item>
+    </style>
+
 </resources>

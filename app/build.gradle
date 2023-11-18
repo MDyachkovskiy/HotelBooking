@@ -39,17 +39,17 @@ android {
 dependencies {
 
     //Kotlin
-    implementation Kotlin.core_ktx
+    implementation (Kotlin.core_ktx)
 
     //AndroidX
-    implementation AndroidX.appcompat
+    implementation (AndroidX.appcompat)
 
     //Design
-    implementation Design.material
-    implementation Design.constraint_layout
+    implementation (Design.material)
+    implementation (Design.constraint_layout)
 
     //Test
-    testImplementation TestImpl.junit
-    androidTestImplementation TestImpl.ext_junit
-    androidTestImplementation TestImpl.espresso_core
+    testImplementation (TestImpl.junit)
+    androidTestImplementation (TestImpl.ext_junit)
+    androidTestImplementation (TestImpl.espresso_core)
 }
