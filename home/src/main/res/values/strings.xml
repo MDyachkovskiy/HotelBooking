@@ -15,4 +15,13 @@
     <string name="peculiarities_chip_3">30 км до аэропорта</string>
     <string name="peculiarities_chip_4">1 км до пляжа</string>
 
+    <string name="hotel_description_mock">Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!</string>
+
+    <string name="facilities">Удобства</string>
+    <string name="inclusion">Что включено</string>
+    <string name="un_inclusion">Что не включено</string>
+    <string name="most_essentials">Самое необходимое</string>
+
+    <string name="room_booking">К выбору номера</string>
+
 </resources>

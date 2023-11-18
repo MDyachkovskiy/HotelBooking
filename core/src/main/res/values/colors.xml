@@ -9,4 +9,11 @@
     <color name="hotel_fragment_background_color">#F6F6F9</color>
     <color name="peculiarities_text_color">#828796</color>
     <color name="peculiarities_chip_background">#FBFBFC</color>
+    <color name="hotel_description_text">#E6000000</color>
+    <color name="description_details_block_background">#FBFBFC</color>
+    <color name="description_details_block_title_color">#2C3035</color>
+    <color name="description_details_block_text_color">#828796</color>
+    <color name="description_details_border_color">#D9828796</color>
+    <color name="button_color">#0D72FF</color>
+    <color name="booking_button_block_border">#E8E9EC</color>
 </resources>
