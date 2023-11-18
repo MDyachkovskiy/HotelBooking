@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title_mock">Отель</string>
+    <string name="rating_mock">5</string>
+    <string name="rating_name_mock">Превосходно</string>
+    <string name="hotel_name_mock">Steigenberger Makadi</string>
+    <string name="hotel_address_mock">Madinat Makadi, Safaga Road, Makadi Bay, Египет</string>
+    <string name="price_mock">от 134 673 ₽</string>
+    <string name="price_description">за тур с перелётом</string>
+
+    <string name="about_hotel">Об отеле</string>
+
+    <string name="peculiarities_chip_1">3-я линия</string>
+    <string name="peculiarities_chip_2">Платный Wi-Fi в фойе</string>
+    <string name="peculiarities_chip_3">30 км до аэропорта</string>
+    <string name="peculiarities_chip_4">1 км до пляжа</string>
+
+</resources>
