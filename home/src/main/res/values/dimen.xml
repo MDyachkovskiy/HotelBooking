@@ -9,4 +9,7 @@
     <dimen name="margin_15dp_small">15dp</dimen>
     <dimen name="margin_16dp_medium">16dp</dimen>
 
+    <dimen name="chip_line_height">19.2dp</dimen>
+    <dimen name="chip_corner_radius">5dp</dimen>
+
 </resources>

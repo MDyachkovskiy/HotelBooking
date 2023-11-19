@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="hotel_peculiarities_style" parent="Base.Widget.Material3.Chip">
+    <style name="hotel_peculiarities_style" parent="Widget.Material3.Chip.Assist">
         <!-- Chip style-->
         <item name="chipBackgroundColor">@color/peculiarities_chip_background</item>
         <item name="chipCornerRadius">5dp</item>

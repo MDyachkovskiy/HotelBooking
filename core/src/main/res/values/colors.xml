@@ -7,8 +7,6 @@
     <color name="address_text_color">#0D72FF</color>
     <color name="price_description_color">#828796</color>
     <color name="hotel_fragment_background_color">#F6F6F9</color>
-    <color name="peculiarities_text_color">#828796</color>
-    <color name="peculiarities_chip_background">#FBFBFC</color>
     <color name="hotel_description_text">#E6000000</color>
     <color name="description_details_block_background">#FBFBFC</color>
     <color name="description_details_block_title_color">#2C3035</color>

@@ -1,14 +1,17 @@
 package com.test.application.home
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
 import com.google.android.material.chip.Chip
+import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.AboutTheHotel
 import com.test.application.core.domain.Hotel
 import com.test.application.core.utilities.AppState
@@ -71,10 +74,26 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
             chipGroup.removeAllViews()
 
             peculiarities.forEach {peculiarity ->
-                val chip = Chip(context, null,
-                    R.style.hotel_peculiarities_style).apply {
+                val chip = Chip(requireContext()).apply {
                     text = peculiarity
                     isCheckable = false
+
+                    setChipBackgroundColorResource(R.color.peculiarities_chip_background)
+                    val shapeAppearanceModel = shapeAppearanceModel.toBuilder()
+                        .setAllCorners(CornerFamily.ROUNDED, resources.getDimension(R.dimen.chip_corner_radius))
+                        .build()
+                    this.shapeAppearanceModel = shapeAppearanceModel
+                    chipStrokeWidth = 0f
+                    setPadding(
+                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
+                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small),
+                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
+                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small)
+                    )
+                    setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
+                    setTextColor(resources.getColor(R.color.peculiarities_text_color, null))
+                    typeface = ResourcesCompat.getFont(requireContext(), R.font.sf_pro_display_500)
+                    lineHeight = resources.getDimensionPixelSize(R.dimen.chip_line_height)
                 }
                 chipGroup.addView(chip)
             }
