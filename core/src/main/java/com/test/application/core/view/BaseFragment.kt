@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.test.application.core.databinding.LayoutLoadingBinding
 import com.test.application.core.utilities.AppState
 
 typealias Inflate<F> = (LayoutInflater, ViewGroup?, Boolean) -> F
@@ -19,11 +18,10 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
     private val inflate: Inflate<VB>
 ) : Fragment() {
 
-    private var _bindingLoading: LayoutLoadingBinding? = null
-    private val bindingLoading get() = _bindingLoading!!
-
     private var _binding: VB? = null
     val binding: VB get() = _binding!!
+
+    protected lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,29 +29,14 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
         savedInstanceState: Bundle?
     ): View? {
         _binding = inflate.invoke(inflater, container, false)
-        _bindingLoading = LayoutLoadingBinding.inflate(layoutInflater)
-
-        setupLoadingLayout()
-
+        progressBar = findProgressBar()
         return binding.root
     }
 
-    private fun setupLoadingLayout() {
-        val rootLayout = (binding.root as? ViewGroup)
-
-        val layoutParams = FrameLayout.LayoutParams(
-            FrameLayout.LayoutParams.MATCH_PARENT,
-            FrameLayout.LayoutParams.MATCH_PARENT
-        )
-
-        _bindingLoading?.root?.layoutParams = layoutParams
-
-        rootLayout?.addView(_bindingLoading?.root)
-    }
+    abstract fun findProgressBar(): ProgressBar
 
     override fun onDestroyView() {
         _binding = null
-        _bindingLoading = null
         super.onDestroyView()
     }
 
@@ -79,8 +62,8 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
     abstract fun setupData(data: I)
 
     private fun showViewLoading() {
-        bindingLoading.loadingLayout.animate().cancel()
-        bindingLoading.loadingLayout.apply {
+        progressBar.animate().cancel()
+        progressBar.apply {
             alpha = 1.0f
             visibility = View.VISIBLE
         }
@@ -89,12 +72,12 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
     abstract fun showErrorDialog(message: String?)
 
     private fun showWorkingView() {
-        bindingLoading.loadingLayout.animate()
+        progressBar.animate()
             .alpha(0.0f)
             .setDuration(300)
             .setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
-                    bindingLoading.loadingLayout.visibility = View.GONE
+                    progressBar.visibility = View.GONE
                 }
             })
     }

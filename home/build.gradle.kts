@@ -32,13 +32,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packaging {
+        resources.excludes.add("META-INF/NOTICE.md")
+        resources.excludes.add("META-INF/LICENSE.md")
+    }
 }
 
 dependencies {
     //Modules
     implementation (project(":core"))
-    implementation (project(":app"))
-    implementation (project(":remote_data"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")

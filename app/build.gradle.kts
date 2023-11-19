@@ -37,9 +37,22 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    packaging {
+        resources.excludes.add("META-INF/NOTICE.md")
+        resources.excludes.add("META-INF/LICENSE.md")
+    }
 }
 
 dependencies {
+
+    implementation (project(":remote_data"))
+    implementation (project(":home"))
+    implementation (project(":core"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")
@@ -60,9 +73,6 @@ dependencies {
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation(project(mapOf("path" to ":remote_data")))
-    implementation(project(mapOf("path" to ":core")))
-    implementation(project(mapOf("path" to ":home")))
 
     //Test
     testImplementation ("junit:junit:4.13.2")

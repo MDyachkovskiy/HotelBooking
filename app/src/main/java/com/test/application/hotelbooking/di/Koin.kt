@@ -4,7 +4,7 @@ import com.test.application.core.domain.Hotel
 import com.test.application.core.interactor.HomeScreenInteractor
 import com.test.application.core.interactor.HomeScreenInteractorImpl
 import com.test.application.home.HomeViewModel
-import com.test.application.remote_data.repository.HotelRepository
+import com.test.application.core.repository.HotelRepository
 import com.test.application.remote_data.api.HotelService
 import com.test.application.remote_data.repository.Repository
 import org.koin.androidx.viewmodel.dsl.viewModel

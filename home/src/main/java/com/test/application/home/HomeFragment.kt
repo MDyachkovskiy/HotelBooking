@@ -2,6 +2,7 @@ package com.test.application.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -71,7 +72,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
 
             peculiarities.forEach {peculiarity ->
                 val chip = Chip(context, null,
-                    com.test.application.core.R.style.hotel_peculiarities_style).apply {
+                    R.style.hotel_peculiarities_style).apply {
                     text = peculiarity
                     isCheckable = false
                 }
@@ -84,6 +85,10 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
         binding.hotelImages.load(imageUrls?.first()) {
             crossfade(true)
         }
+    }
+
+    override fun findProgressBar(): ProgressBar {
+        return binding.progressBar
     }
 
     override fun showErrorDialog(message: String?) {
