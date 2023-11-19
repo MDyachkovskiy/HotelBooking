@@ -3,7 +3,7 @@ package com.test.application.core.domain
 data class Room (
     val id: Int,
     val name: String,
-    val price: Long?,
+    val price: Int?,
     val pricePer: String?,
     val peculiarities: List<String>?,
     val imageUrls: List<String>?

@@ -9,5 +9,6 @@
     <string name="room_price">186 600 ₽</string>
     <string name="room_price_description">за 7 ночей с перелётом</string>
     <string name="room_choose_button">Выбрать номер</string>
+    <string name="unknown_price">Цену уточняйте</string>
 
 </resources>

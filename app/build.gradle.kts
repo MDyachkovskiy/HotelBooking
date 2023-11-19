@@ -53,6 +53,7 @@ dependencies {
     implementation (project(":remote_data"))
     implementation (project(":home"))
     implementation (project(":core"))
+    implementation (project(":room_list"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")

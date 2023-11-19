@@ -46,6 +46,12 @@ dependencies {
     //AndroidX
     implementation("androidx.appcompat:appcompat:1.6.1")
 
+    //Koin
+    implementation ("io.insert-koin:koin-android:3.4.2")
+
+    //Coil
+    implementation ("io.coil-kt:coil:2.4.0")
+
     //Design
     implementation("com.google.android.material:material:1.10.0")
 

@@ -24,4 +24,6 @@
 
     <string name="room_booking">К выбору номера</string>
 
+    <string name="unknown_price">Цену уточняйте</string>
+
 </resources>

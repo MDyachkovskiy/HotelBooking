@@ -87,19 +87,18 @@
                     style="@style/rating_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_2dp_small"
-                    android:text="@string/rating_mock"
                     android:layout_gravity="center"
-                    />
+                    android:layout_marginHorizontal="@dimen/margin_2dp_small"
+                    android:text="@string/rating_mock" />
 
                 <TextView
                     android:id="@+id/tv_rating_name"
                     style="@style/rating_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginHorizontal="@dimen/margin_2dp_small"
-                    android:text="@string/rating_name_mock"
-                    android:layout_gravity="center"/>
+                    android:text="@string/rating_name_mock" />
 
             </LinearLayout>
 
@@ -157,17 +156,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp_small"
             android:background="@drawable/hotel_description_block_background"
+            app:layout_constraintBottom_toTopOf="@+id/booking_button_block"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/hotel_name_block"
-            app:layout_constraintBottom_toTopOf="@+id/booking_button_block">
+            app:layout_constraintTop_toBottomOf="@id/hotel_name_block">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/bottom_guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_end="@dimen/margin_16dp_medium"/>
+                app:layout_constraintGuide_end="@dimen/margin_16dp_medium" />
 
             <TextView
                 android:id="@+id/hotel_description_title"
@@ -259,10 +258,10 @@
                 android:layout_marginEnd="@dimen/margin_16dp_medium"
                 android:background="@drawable/description_details_block_background"
                 android:padding="@dimen/margin_15dp_small"
+                app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/hotel_description_title"
-                app:layout_constraintTop_toBottomOf="@id/tv_hotel_description"
-                app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline">
+                app:layout_constraintTop_toBottomOf="@id/tv_hotel_description">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/facility_block"
@@ -466,10 +465,10 @@
                 style="@style/booking_button_text_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingVertical="@dimen/margin_15dp_small"
                 android:layout_marginHorizontal="@dimen/margin_16dp_medium"
                 android:layout_marginVertical="@dimen/margin_12dp_small"
                 android:backgroundTint="@color/button_color"
+                android:paddingVertical="@dimen/margin_15dp_small"
                 android:text="@string/room_booking"
                 app:cornerRadius="15dp" />
 
@@ -480,11 +479,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

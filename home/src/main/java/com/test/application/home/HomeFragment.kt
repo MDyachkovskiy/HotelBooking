@@ -19,6 +19,8 @@ import com.test.application.core.view.BaseFragment
 import com.test.application.home.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.NumberFormat
+import java.util.Locale
 
 class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     FragmentHomeBinding::inflate
@@ -43,7 +45,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     }
 
     private fun requestData() {
-        model.getData()
+        model.loadHotelInfo()
     }
 
     override fun setupData(data: Hotel) {
@@ -65,7 +67,12 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     }
 
     private fun formatPrice(price: Int?): String {
-        return "от $price ₽"
+        return if(price != null) {
+            val formatter = NumberFormat.getNumberInstance(Locale("ru", "RU"))
+            "от ${formatter.format(price)} ₽"
+        } else {
+            requireContext().getString(R.string.unknown_price)
+        }
     }
 
     private fun initPeculiaritiesChips(aboutTheHotel: AboutTheHotel?) {
