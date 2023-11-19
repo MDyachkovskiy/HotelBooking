@@ -40,4 +40,5 @@ dependencies {
     implementation ("com.google.android.material:material:1.10.0")
     implementation("androidx.databinding:viewbinding:8.1.4")
     implementation("androidx.databinding:databinding-compiler-common:8.1.4")
+    implementation(project(mapOf("path" to ":remote_data")))
 }

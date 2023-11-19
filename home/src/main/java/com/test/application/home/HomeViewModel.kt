@@ -1,5 +1,6 @@
 package com.test.application.home
 
+import com.test.application.core.interactor.HomeScreenInteractor
 import com.test.application.core.utilities.AppState
 import com.test.application.core.view.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -7,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val interactor: HomeFragmentInteractor
+    private val interactor: HomeScreenInteractor
 ) : BaseViewModel<AppState> () {
 
     private val _stateFlow = MutableStateFlow<AppState>(AppState.Loading)
