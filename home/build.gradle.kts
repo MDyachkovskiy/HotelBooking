@@ -38,6 +38,7 @@ dependencies {
     //Modules
     implementation (project(":core"))
     implementation (project(":app"))
+    implementation (project(":remote_data"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")
@@ -48,6 +49,12 @@ dependencies {
     //Design
     implementation ("com.google.android.material:material:1.10.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    //Koin
+    implementation ("io.insert-koin:koin-android:3.4.2")
+
+    //Coil
+    implementation ("io.coil-kt:coil:2.4.0")
 
     //Test
     testImplementation ("junit:junit:4.13.2")

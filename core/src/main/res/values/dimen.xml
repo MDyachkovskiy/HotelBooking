@@ -8,4 +8,8 @@
     <dimen name="text_size_22sp">22sp</dimen>
     <dimen name="text_size_30sp">30sp</dimen>
 
+    //Margin
+    <dimen name="margin_5dp_small">5dp</dimen>
+    <dimen name="margin_10dp_small">10dp</dimen>
+
 </resources>

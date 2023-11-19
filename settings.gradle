@@ -16,3 +16,4 @@ rootProject.name = "HotelBooking"
 include ':app'
 include ':core'
 include ':home'
+include ':remote_data'
