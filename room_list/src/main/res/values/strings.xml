@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="home_name_mock">Steigenberger Makadi</string>
+    <string name="room_name_mock">Стандартный с видом на бассейн или сад</string>
+    <string name="peculiarity_1">Все включено</string>
+    <string name="peculiarity_2">Кондиционер</string>
+    <string name="room_details">Подробнее о номере</string>
+    <string name="room_price">186 600 ₽</string>
+    <string name="room_price_description">за 7 ночей с перелётом</string>
+    <string name="room_choose_button">Выбрать номер</string>
+
+</resources>

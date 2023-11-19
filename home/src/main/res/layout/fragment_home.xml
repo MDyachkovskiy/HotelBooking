@@ -88,7 +88,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_2dp_small"
-                    android:text="@string/rating_mock" />
+                    android:text="@string/rating_mock"
+                    android:layout_gravity="center"
+                    />
 
                 <TextView
                     android:id="@+id/tv_rating_name"
@@ -96,7 +98,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_2dp_small"
-                    android:text="@string/rating_name_mock" />
+                    android:text="@string/rating_name_mock"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
 
@@ -191,7 +194,6 @@
                 app:singleSelection="false">
 
                 <com.google.android.material.chip.Chip
-                    style="@style/hotel_peculiarities_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/peculiarities_chip_background"
@@ -203,7 +205,6 @@
                     app:chipStrokeWidth="0dp" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/hotel_peculiarities_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/peculiarities_chip_background"
@@ -215,7 +216,6 @@
                     app:chipStrokeWidth="0dp" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/hotel_peculiarities_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/peculiarities_chip_background"
@@ -227,7 +227,6 @@
                     app:chipStrokeWidth="0dp" />
 
                 <com.google.android.material.chip.Chip
-                    style="@style/hotel_peculiarities_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/peculiarities_chip_background"
@@ -466,7 +465,8 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/booking_button_text_style"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/margin_15dp_small"
                 android:layout_marginHorizontal="@dimen/margin_16dp_medium"
                 android:layout_marginVertical="@dimen/margin_12dp_small"
                 android:backgroundTint="@color/button_color"
