@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:backgroundTint="@color/room_list_fragment_background_color">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/navigation_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,19 +28,718 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/tv_hotel_name"
+            android:id="@+id/booking_title"
             style="@style/hotel_fragment_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginVertical="@dimen/margin_10dp_small"
+            android:gravity="center"
             android:text="@string/booking_fragment_title"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_8dp_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigation_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/hotel_info_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/hotel_info_block_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/rating_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_16dp_medium"
+                    android:background="@drawable/rating_block_background"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_10dp_small"
+                    android:paddingVertical="@dimen/margin_5dp_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_star"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tv_rating"
+                        style="@style/rating_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/margin_2dp_small"
+                        android:text="@string/rating_mock" />
+
+                    <TextView
+                        android:id="@+id/tv_rating_name"
+                        style="@style/rating_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/margin_2dp_small"
+                        android:text="@string/rating_name_mock" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_hotel_name"
+                    style="@style/hotel_name_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_8dp_small"
+                    android:text="@string/hotel_name_mock"
+                    app:layout_constraintStart_toStartOf="@id/rating_block"
+                    app:layout_constraintTop_toBottomOf="@id/rating_block" />
+
+                <TextView
+                    android:id="@+id/tv_hotel_address"
+                    style="@style/address_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    android:layout_marginBottom="@dimen/margin_16dp_medium"
+                    android:text="@string/hotel_address_mock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/rating_block"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hotel_name" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tour_details_block"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp_small"
+                android:background="@drawable/tour_details_block_background"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hotel_info_block">
+
+                <TextView
+                    android:id="@+id/label_departure"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_departure"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_departure"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_departure_mock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/label_arrival_country"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_arrival_country"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_departure" />
+
+                <TextView
+                    android:id="@+id/tv_arrival_country"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_arrival_country_mock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_departure" />
+
+                <TextView
+                    android:id="@+id/label_tour_date"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_tour_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_arrival_country" />
+
+                <TextView
+                    android:id="@+id/tv_tour_date"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_tour_date_mock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_arrival_country" />
+
+
+                <TextView
+                    android:id="@+id/label_number_of_nights"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_number_of_nights"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tour_date" />
+
+                <TextView
+                    android:id="@+id/tv_number_of_nights"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_number_of_nights_mock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tour_date" />
+
+                <TextView
+                    android:id="@+id/label_hotel"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_hotel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_number_of_nights" />
+
+                <TextView
+                    android:id="@+id/tv_hotel"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_hotel_mock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_number_of_nights" />
+
+                <TextView
+                    android:id="@+id/label_room"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_room"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hotel" />
+
+                <TextView
+                    android:id="@+id/tv_room"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_room_mock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hotel" />
+
+                <TextView
+                    android:id="@+id/label_nutrition"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/tour_details_nutrition"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_room" />
+
+                <TextView
+                    android:id="@+id/tv_nutrition"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:layout_marginBottom="@dimen/margin_16dp_medium"
+                    android:maxLines="3"
+                    android:text="@string/tour_details_nutrition_mock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_room" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/client_information_block"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp_small"
+                android:background="@drawable/tour_details_block_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tour_details_block">
+
+                <TextView
+                    android:id="@+id/client_information_block_title"
+                    style="@style/client_information_block_title_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/client_information_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_phone_number"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_20dp_medium"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/client_information_block_title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/phone_number_hint"
+                        android:text="@string/phone_number_mock"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_email"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_phone_number">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/email_hint"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/confidential_alert_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_email"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/confidential_alert"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginBottom="@dimen/margin_16dp_medium"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tourist_information_block"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp_small"
+                android:background="@drawable/tour_details_block_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/client_information_block"
+                >
+
+                <TextView
+                    android:id="@+id/tourist_information_block_title"
+                    style="@style/client_information_block_title_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/first_tourist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <FrameLayout
+                    android:id="@+id/open_button"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/open_close_button_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_arrow_up"
+                        tools:ignore="ContentDescription" />
+
+                </FrameLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_20dp_medium"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tourist_information_block_title">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_name"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_second_name"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_second_name"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_citizenship"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_second_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_citizenship"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_birth_date"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_citizenship">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_date_of_birth"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_passport_number"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_birth_date">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_passport_number"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_passport_expiring_date"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_8dp_small"
+                    android:layout_marginBottom="@dimen/margin_16dp_medium"
+                    app:hintTextAppearance="@style/client_information_floating_hint_text_style"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_passport_number"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/margin_16dp_medium"
+                        android:paddingBottom="@dimen/margin_10dp_small"
+                        android:hint="@string/tourist_information_passport_expiring_date"
+                        android:textAppearance="@style/client_information_hint_text_style" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tourist_adding_button_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp_small"
+                android:background="@drawable/tour_details_block_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tourist_information_block">
+
+                <TextView
+                    android:id="@+id/tourist_adding_button_block_title"
+                    style="@style/client_information_block_title_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_16dp_medium"
+                    android:text="@string/add_tourist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <FrameLayout
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:icon="@drawable/ic_add"
+                    android:background="@drawable/add_button_background"
+                    android:layout_margin="@dimen/margin_16dp_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:cornerRadius="6dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_add"
+                        tools:ignore="ContentDescription" />
+
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/price_calculation_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp_small"
+                android:background="@drawable/tour_details_block_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tourist_adding_button_block">
+
+                <TextView
+                    android:id="@+id/label_tour_price"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_tour_price_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_tour_price"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_tour_price_mock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/label_fuel_charge"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_fuel_charge_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tour_price" />
+
+                <TextView
+                    android:id="@+id/tv_fuel_charge"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_fuel_charge_mock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tour_price" />
+
+                <TextView
+                    android:id="@+id/label_service_charge"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_service_charge_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fuel_charge" />
+
+                <TextView
+                    android:id="@+id/tv_service_charge"
+                    style="@style/tour_details_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_service_charge_mock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fuel_charge" />
+
+                <TextView
+                    android:id="@+id/label_total_price"
+                    style="@style/tour_details_label_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp_medium"
+                    android:layout_marginTop="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_total_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_service_charge" />
+
+                <TextView
+                    android:id="@+id/tv_total_price"
+                    style="@style/total_price_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_16dp_medium"
+                    android:layout_marginVertical="@dimen/margin_16dp_medium"
+                    android:text="@string/price_calculation_total_mock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_service_charge"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/pay_button_block"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp_small"
+                android:background="@drawable/pay_button_block_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/price_calculation_block">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pay_button"
+                    style="@style/booking_button_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+                    android:paddingVertical="@dimen/margin_16dp_medium"
+                    android:layout_marginVertical="@dimen/margin_12dp_medium"
+                    android:backgroundTint="@color/button_color"
+                    android:text="@string/pay_button_mock"
+                    app:cornerRadius="15dp" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

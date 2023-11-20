@@ -79,4 +79,63 @@
         <item name="android:lineHeight">17.6dp</item>
     </style>
 
+    <style name="tour_details_label_text_style">
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textColor">@color/tour_details_label_text_color</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:lineHeight">19.2dp</item>
+    </style>
+
+    <style name="tour_details_text_style">
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:lineHeight">19.2dp</item>
+    </style>
+
+    <style name="client_information_block_title_style">
+        <item name="android:textSize">@dimen/text_size_22sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/sf_pro_display_500</item>
+        <item name="android:lineHeight">26.4dp</item>
+    </style>
+
+    <style name="client_information_hint_text_style">
+        <item name="android:textSize">@dimen/text_size_17sp</item>
+        <item name="android:textColor">@color/edit_text_hint_color</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:lineHeight">20.4dp</item>
+    </style>
+
+    <style name="client_information_floating_hint_text_style">
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:textColor">@color/edit_text_hint_color</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:lineHeight">14.4dp</item>
+    </style>
+
+    <style name="client_information_appearing_text_style">
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textColor">@color/edit_text_appearing_color</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:letterSpacing">0.047</item>
+        <item name="android:lineHeight">17.6dp</item>
+    </style>
+
+    <style name="confidential_alert_text_style">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/confidential_alert_text_color</item>
+        <item name="fontFamily">@font/sf_pro_display_400</item>
+        <item name="android:lineHeight">16.8dp</item>
+    </style>
+
+    <style name="total_price_text_style">
+        <item name="android:textSize">@dimen/text_size_16sp</item>
+        <item name="android:textColor">@color/total_price_text_color</item>
+        <item name="fontFamily">@font/sf_pro_display_600</item>
+        <item name="android:lineHeight">19.2dp</item>
+    </style>
+
 </resources>

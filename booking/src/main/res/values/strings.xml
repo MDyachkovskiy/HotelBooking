@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="booking_fragment_title">Бронирование</string>
+    <string name="rating_mock">5</string>
+    <string name="rating_name_mock">Превосходно</string>
+    <string name="hotel_name_mock">Steigenberger Makadi</string>
+    <string name="hotel_address_mock">Madinat Makadi, Safaga Road, Makadi Bay, Египет</string>
+
+    <string name="tour_details_departure">Вылет из</string>
+    <string name="tour_details_arrival_country">Страна, город</string>
+    <string name="tour_details_tour_date">Даты</string>
+    <string name="tour_details_number_of_nights">Кол-во ночей</string>
+    <string name="tour_details_hotel">Отель</string>
+    <string name="tour_details_room">Номер</string>
+    <string name="tour_details_nutrition">Питание</string>
+
+    <string name="tour_details_departure_mock">Санкт-Петербург</string>
+    <string name="tour_details_arrival_country_mock">Египет, Хургада</string>
+    <string name="tour_details_tour_date_mock">19.09.2023 – 27.09.2023</string>
+    <string name="tour_details_hotel_mock">Steigenberger Makadi</string>
+    <string name="tour_details_number_of_nights_mock">7 ночей</string>
+    <string name="tour_details_room_mock">Стандартный с видом на бассейн или сад</string>
+    <string name="tour_details_nutrition_mock">Все включено</string>
+
+    <string name="client_information_title">Информация о покупателе</string>
+    <string name="phone_number_hint">Номер телефона</string>
+    <string name="phone_number_mock">+7 (951) 555–99–00</string>
+    <string name="email_hint">Почта</string>
+    <string name="confidential_alert">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
+    <string name="first_tourist">Первый турист</string>
+    <string name="tourist_information_name">Имя</string>
+    <string name="tourist_information_second_name">Фамилия</string>
+    <string name="tourist_information_date_of_birth">Дата рождения</string>
+    <string name="tourist_information_citizenship">Гражданство</string>
+    <string name="tourist_information_passport_number">Номер загранпаспорта</string>
+    <string name="tourist_information_passport_expiring_date">Срок действия загранпаспорта</string>
+    <string name="add_tourist">Добавить туриста</string>
+
+    <string name="price_calculation_tour_price_label">Тур</string>
+    <string name="price_calculation_tour_price_mock">186 600 ₽</string>
+    <string name="price_calculation_fuel_charge_label">Топливный сбор</string>
+    <string name="price_calculation_fuel_charge_mock">9 300 ₽</string>
+    <string name="price_calculation_service_charge_label">Сервисный сбор</string>
+    <string name="price_calculation_service_charge_mock">2 136 ₽</string>
+    <string name="price_calculation_total_label">К оплате</string>
+    <string name="price_calculation_total_mock">198 036 ₽</string>
+    <string name="pay_button_mock">Оплатить 198 036 ₽</string>
+
 </resources>
