@@ -24,4 +24,8 @@ class MainActivity : AppCompatActivity(), Navigator {
     override fun navigateToRoomListFragment() {
         navController.navigate(R.id.action_homeFragment_to_roomListFragment)
     }
+
+    override fun navigateFromRoomListToHomeFragment() {
+        navController.navigate(R.id.action_roomListFragment_to_homeFragment)
+    }
 }

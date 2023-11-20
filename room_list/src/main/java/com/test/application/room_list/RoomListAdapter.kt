@@ -51,12 +51,9 @@ class RoomListAdapter(
                         .build()
                     this.shapeAppearanceModel = shapeAppearanceModel
                     chipStrokeWidth = 0f
-                    setPadding(
-                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small)
-                    )
+                    chipStartPadding = resources.getDimension(R.dimen.margin_10dp_small)
+                    chipEndPadding = resources.getDimension(R.dimen.margin_10dp_small)
+
                     setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
                     setTextColor(resources.getColor(R.color.peculiarities_text_color, null))
                     typeface = ResourcesCompat.getFont(context,

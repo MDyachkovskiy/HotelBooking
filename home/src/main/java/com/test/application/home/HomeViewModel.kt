@@ -1,5 +1,6 @@
 package com.test.application.home
 
+import android.util.Log
 import com.test.application.core.interactor.HomeScreenInteractor
 import com.test.application.core.utilities.AppState
 import com.test.application.core.view.BaseViewModel
@@ -19,8 +20,10 @@ class HomeViewModel(
             _stateFlow.value = AppState.Loading
             try {
                 val hotelInfo = interactor.getHotelInfo()
+                Log.d("@@@", "Hotel info loaded: $hotelInfo")
                 _stateFlow.emit(AppState.Success(hotelInfo))
             } catch (e:Throwable) {
+                Log.e("@@@", "Error loading hotel info", e)
                 _stateFlow.emit(AppState.Error(e))
             }
         }

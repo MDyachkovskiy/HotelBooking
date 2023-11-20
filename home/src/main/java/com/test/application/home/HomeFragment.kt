@@ -8,7 +8,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import coil.load
 import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.AboutTheHotel
@@ -98,12 +97,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
                         .build()
                     this.shapeAppearanceModel = shapeAppearanceModel
                     chipStrokeWidth = 0f
-                    setPadding(
-                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_10dp_small),
-                        resources.getDimensionPixelSize(R.dimen.margin_5dp_small)
-                    )
+
                     setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
                     setTextColor(resources.getColor(R.color.peculiarities_text_color, null))
                     typeface = ResourcesCompat.getFont(requireContext(), R.font.sf_pro_display_500)
@@ -115,9 +109,12 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     }
 
     private fun initImages(imageUrls: List<String>?) {
-        binding.hotelImages.load(imageUrls?.first()) {
-            crossfade(true)
-        }
+        val viewPager = binding.imageCarousel
+        val indicator = binding.imageIndicator
+
+        val adapter = HotelImageAdapter(imageUrls ?: emptyList())
+        viewPager.adapter = adapter
+        indicator.setViewPager(viewPager)
     }
 
     override fun findProgressBar(): ProgressBar {

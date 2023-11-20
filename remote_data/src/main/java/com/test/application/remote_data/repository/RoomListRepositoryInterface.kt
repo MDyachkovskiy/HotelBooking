@@ -1,5 +1,5 @@
 package com.test.application.remote_data.repository
 
-interface Repository<T> {
+interface RoomListRepositoryInterface<T> {
     suspend fun getData(): T
 }

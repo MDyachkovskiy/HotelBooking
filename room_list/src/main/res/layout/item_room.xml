@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_8dp_small"
         app:chipSpacingHorizontal="@dimen/margin_8dp_small"
+        app:chipSpacingVertical="@dimen/margin_2dp_small"
         app:layout_constraintEnd_toEndOf="@id/room_images"
         app:layout_constraintStart_toStartOf="@+id/room_images"
         app:layout_constraintTop_toBottomOf="@id/tv_room_name">

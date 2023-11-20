@@ -52,6 +52,8 @@ dependencies {
     //Design
     implementation ("com.google.android.material:material:1.10.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("me.relex:circleindicator:2.1.6")
 
     //Koin
     implementation ("io.insert-koin:koin-android:3.4.2")

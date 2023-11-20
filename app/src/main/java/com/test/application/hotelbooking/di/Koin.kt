@@ -11,7 +11,8 @@ import com.test.application.core.repository.HotelRepository
 import com.test.application.core.repository.RoomListRepository
 import com.test.application.remote_data.api.HotelService
 import com.test.application.remote_data.api.RoomListService
-import com.test.application.remote_data.repository.Repository
+import com.test.application.remote_data.repository.HotelRepositoryInterface
+import com.test.application.remote_data.repository.RoomListRepositoryInterface
 import com.test.application.room_list.RoomListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -36,8 +37,8 @@ val networkModule = module {
 }
 
 val repositoryModule = module {
-    single<Repository<Hotel>> { HotelRepository(hotelService = get()) }
-    single<Repository<List<Room>>> {RoomListRepository(roomsService = get())}
+    single<HotelRepositoryInterface<Hotel>> { HotelRepository(hotelService = get()) }
+    single<RoomListRepositoryInterface<List<Room>>> { RoomListRepository(roomsService = get()) }
 }
 
 val interactorModule = module {

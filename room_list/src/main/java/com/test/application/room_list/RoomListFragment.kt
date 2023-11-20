@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.application.core.domain.Room
+import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
 import com.test.application.core.view.BaseFragment
 import com.test.application.room_list.databinding.FragmentRoomListBinding
@@ -24,8 +25,15 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewModel()
+        initButtons()
         initRecyclerView()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun initButtons() {
+        binding.backButton.setOnClickListener {
+            (activity as? Navigator)?.navigateFromRoomListToHomeFragment()
+        }
     }
 
     private fun initRecyclerView() {
