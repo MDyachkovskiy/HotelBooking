@@ -2,7 +2,7 @@ package com.test.application.room_list
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
+import android.widget.FrameLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -64,7 +64,7 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
         model.loadRoomsInfo()
     }
 
-    override fun findProgressBar(): ProgressBar {
+    override fun findProgressBar(): FrameLayout {
         return binding.progressBar
     }
 

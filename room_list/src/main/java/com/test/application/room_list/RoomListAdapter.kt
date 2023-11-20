@@ -9,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.Room
+import com.test.application.core.utilities.formatPrice
 import com.test.application.room_list.databinding.ItemRoomBinding
-import java.text.NumberFormat
-import java.util.Locale
 
 class RoomListAdapter(
     initialRooms: List<Room>,
@@ -77,15 +76,6 @@ class RoomListAdapter(
                 tvRoomName.text = room.name
                 tvPrice.text = formatPrice(room.price)
                 tvPriceDescription.text = room.pricePer
-            }
-        }
-
-        private fun formatPrice(price: Int?): String {
-            return if(price != null) {
-                val formatter = NumberFormat.getNumberInstance(Locale("ru", "RU"))
-                "от ${formatter.format(price)} ₽"
-            } else {
-                context.getString(R.string.unknown_price)
             }
         }
     }

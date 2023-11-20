@@ -3,7 +3,7 @@ package com.test.application.home
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
-import android.widget.ProgressBar
+import android.widget.FrameLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Lifecycle
@@ -15,12 +15,11 @@ import com.test.application.core.domain.AboutTheHotel
 import com.test.application.core.domain.Hotel
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
+import com.test.application.core.utilities.formatPrice
 import com.test.application.core.view.BaseFragment
 import com.test.application.home.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.text.NumberFormat
-import java.util.Locale
 
 class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     FragmentHomeBinding::inflate
@@ -75,15 +74,6 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
         }
     }
 
-    private fun formatPrice(price: Int?): String {
-        return if(price != null) {
-            val formatter = NumberFormat.getNumberInstance(Locale("ru", "RU"))
-            "от ${formatter.format(price)} ₽"
-        } else {
-            requireContext().getString(R.string.unknown_price)
-        }
-    }
-
     private fun initPeculiaritiesChips(aboutTheHotel: AboutTheHotel?) {
         aboutTheHotel?.peculiarities?.let {peculiarities ->
             val chipGroup = binding.hotelPeculiaritiesChips
@@ -120,7 +110,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
         indicator.setViewPager(viewPager)
     }
 
-    override fun findProgressBar(): ProgressBar {
+    override fun findProgressBar(): FrameLayout {
         return binding.progressBar
     }
 }

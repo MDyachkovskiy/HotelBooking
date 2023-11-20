@@ -27,6 +27,21 @@
             android:id="@+id/action_roomListFragment_to_homeFragment"
             app:destination="@+id/homeFragment"/>
 
+        <action
+            android:id="@+id/action_roomListFragment_to_bookingFragment"
+            app:destination="@+id/BookingFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/BookingFragment"
+        android:name="com.test.application.booking.BookingFragment"
+        android:label="BookingFragment">
+
+        <action
+            android:id="@+id/action_bookingFragment_to_roomListFragment"
+            app:destination="@+id/roomListFragment"/>
+
     </fragment>
 
 </navigation>

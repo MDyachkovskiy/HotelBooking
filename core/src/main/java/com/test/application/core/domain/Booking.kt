@@ -13,8 +13,7 @@ data class Booking(
     val numberOfNights: Int,
     val room: String,
     val nutrition: String?,
-    val tourPrice: Long,
-    val tourCharge: Long,
-    val fuelCharge: Long?,
-    val serviceCharge: Long?
+    val tourPrice: Int,
+    val fuelCharge: Int?,
+    val serviceCharge: Int?
 )
