@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.test.application.core.utilities.AppState
@@ -69,7 +70,9 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
         }
     }
 
-    abstract fun showErrorDialog(message: String?)
+    private fun showErrorDialog(message: String?) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+    }
 
     private fun showWorkingView() {
         progressBar.animate()

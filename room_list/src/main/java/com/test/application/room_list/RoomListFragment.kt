@@ -3,7 +3,6 @@ package com.test.application.room_list
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -57,9 +56,5 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
 
     override fun setupData(data: List<Room>) {
         roomListAdapter.updateData(data)
-    }
-
-    override fun showErrorDialog(message: String?) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

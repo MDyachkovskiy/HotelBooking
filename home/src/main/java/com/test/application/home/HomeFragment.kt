@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.TypedValue
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +13,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.AboutTheHotel
 import com.test.application.core.domain.Hotel
+import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
 import com.test.application.core.view.BaseFragment
 import com.test.application.home.databinding.FragmentHomeBinding
@@ -30,7 +30,14 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewModel()
+        initButtons()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun initButtons() {
+        binding.bookingButton.setOnClickListener {
+            (activity as? Navigator)?.navigateToRoomListFragment()
+        }
     }
 
     private fun initViewModel() {
@@ -115,9 +122,5 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
 
     override fun findProgressBar(): ProgressBar {
         return binding.progressBar
-    }
-
-    override fun showErrorDialog(message: String?) {
-        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }
