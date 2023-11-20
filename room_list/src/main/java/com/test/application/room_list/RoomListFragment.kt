@@ -28,6 +28,12 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
         initButtons()
         initRecyclerView()
         super.onViewCreated(view, savedInstanceState)
+        val hotelName = arguments?.getString("hotelName")
+        initFragmentTitle(hotelName)
+    }
+
+    private fun initFragmentTitle(hotelName: String?) {
+        binding.tvHotelName.text = hotelName ?: getString(R.string.unknown_price)
     }
 
     private fun initButtons() {

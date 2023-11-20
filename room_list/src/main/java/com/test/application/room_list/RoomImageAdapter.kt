@@ -1,17 +1,17 @@
-package com.test.application.home
+package com.test.application.room_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.test.application.home.databinding.ItemHotelImageBinding
+import com.test.application.room_list.databinding.ItemRoomImageBinding
 
-class HotelImageAdapter(
+class RoomImageAdapter(
     private val images: List<String>
-) : RecyclerView.Adapter<HotelImageAdapter.SliderViewHolder>() {
+) : RecyclerView.Adapter<RoomImageAdapter.SliderViewHolder>() {
 
     inner class SliderViewHolder(
-        private val binding:ItemHotelImageBinding
+        private val binding: ItemRoomImageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(imageUrl: String) {
             binding.imageView.load(imageUrl) {
@@ -23,7 +23,7 @@ class HotelImageAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SliderViewHolder {
-        val binding = ItemHotelImageBinding.inflate(LayoutInflater.from(parent.context),
+        val binding = ItemRoomImageBinding.inflate(LayoutInflater.from(parent.context),
             parent, false)
         return SliderViewHolder(binding)
     }

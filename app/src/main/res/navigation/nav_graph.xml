@@ -18,6 +18,11 @@
         android:id="@+id/roomListFragment"
         android:name="com.test.application.room_list.RoomListFragment"
         android:label="RoomListFragment">
+
+        <argument
+            android:name="hotelName"
+            app:argType="java.lang.String" />
+
         <action
             android:id="@+id/action_roomListFragment_to_homeFragment"
             app:destination="@+id/homeFragment"/>

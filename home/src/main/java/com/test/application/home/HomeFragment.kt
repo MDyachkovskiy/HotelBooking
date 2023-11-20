@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.ProgressBar
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -29,13 +30,14 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewModel()
-        initButtons()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun initButtons() {
+    private fun initButtons(data: Hotel) {
         binding.bookingButton.setOnClickListener {
-            (activity as? Navigator)?.navigateToRoomListFragment()
+            val hotelName = data.name
+            val bundle = bundleOf("hotelName" to hotelName)
+            (activity as? Navigator)?.navigateToRoomListFragment(bundle)
         }
     }
 
@@ -58,6 +60,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
         initTextInformation(data)
         initImages(data.imageUrls)
         initPeculiaritiesChips(data.aboutTheHotel)
+        initButtons(data)
     }
 
     private fun initTextInformation(data: Hotel) {
@@ -67,7 +70,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
             tvPrice.text = formatPrice(data.minimalPrice)
             tvPriceDescription.text = data.priceForIt
             tvRating.text = data.rating.toString()
-            tvHotelName.text  = data.ratingName
+            tvRatingName.text = data.ratingName
             tvHotelDescription.text = data.aboutTheHotel?.description
         }
     }

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.Room
@@ -65,9 +64,12 @@ class RoomListAdapter(
         }
 
         private fun initImages(imageUrls: List<String>?) {
-            binding.ivRoomImages.load(imageUrls?.first()) {
-                crossfade(true)
-            }
+            val viewPager = binding.imageCarousel
+            val indicator = binding.imageIndicator
+
+            val adapter = RoomImageAdapter(imageUrls ?: emptyList())
+            viewPager.adapter = adapter
+            indicator.setViewPager(viewPager)
         }
 
         private fun initTextInformation(room: Room) {
