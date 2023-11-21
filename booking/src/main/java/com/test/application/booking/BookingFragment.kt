@@ -81,7 +81,14 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         initViewModel()
         initBackButton()
         initAddTouristButton()
+        setupInitialTouristBlock()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setupInitialTouristBlock() {
+        val firstTouristInfoBlock = binding.touristInformationBlock
+        val touristBlockBinding = TouristInfoBlockBinding.bind(firstTouristInfoBlock)
+        setupOpenCloseButtonListener(touristBlockBinding)
     }
 
     private fun initAddTouristButton() {
