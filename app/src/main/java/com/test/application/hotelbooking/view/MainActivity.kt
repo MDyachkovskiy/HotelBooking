@@ -36,4 +36,16 @@ class MainActivity : AppCompatActivity(), Navigator {
     override fun navigateFromBookingToRoomList() {
         navController.navigate(R.id.action_bookingFragment_to_roomListFragment)
     }
+
+    override fun navigateFromBookingToPaymentSuccess() {
+        navController.navigate(R.id.action_bookingFragment_to_paymentSuccess)
+    }
+
+    override fun navigateFromPaymentSuccessToHome() {
+        navController.navigate(R.id.action_paymentSuccess_to_homeFragment)
+    }
+
+    override fun navigateFromPaymentSuccessToBooking() {
+        navController.navigate(R.id.action_paymentSuccess_to_bookingFragment)
+    }
 }

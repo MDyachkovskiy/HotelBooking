@@ -35,4 +35,8 @@
     <color name="total_price_text_color">#0D72FF</color>
     <color name="edit_text_alert">#EB5757</color>
 
+    //PaymentSuccess
+    <color name="circle_frame_background_color">#F6F6F9</color>
+    <color name="order_describing_text_color">#828796</color>
+
 </resources>

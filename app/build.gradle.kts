@@ -54,6 +54,7 @@ dependencies {
     implementation (project(":home"))
     implementation (project(":core"))
     implementation (project(":room_list"))
+    implementation (project(":payment_success"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")

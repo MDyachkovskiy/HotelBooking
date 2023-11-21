@@ -123,7 +123,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         }
 
         if (allFieldsValid) {
-            // переход в итоговый фрагмент
+            (activity as? Navigator)?.navigateFromBookingToPaymentSuccess()
         } else {
             showErrorToast(getString(R.string.fill_all_necessary_edits))
         }

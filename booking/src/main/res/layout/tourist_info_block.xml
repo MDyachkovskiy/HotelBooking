@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/tour_details_block_background">
 
     <TextView
@@ -31,11 +31,11 @@
 
         <ImageView
             android:id="@+id/open_button_arrow"
-            tools:ignore="ContentDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_arrow_up" />
+            android:src="@drawable/ic_arrow_up"
+            tools:ignore="ContentDescription" />
 
     </FrameLayout>
 
@@ -56,8 +56,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_name"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -79,8 +81,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_second_name"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,8 +106,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_citizenship"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -125,8 +131,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_date_of_birth"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -148,8 +156,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_passport_number"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -173,8 +183,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_passport_expiring_date"
+            android:imeOptions="actionDone"
             android:paddingStart="@dimen/margin_16dp_medium"
             android:paddingBottom="@dimen/margin_10dp_small"
+            android:singleLine="true"
             android:textAppearance="@style/client_information_hint_text_style" />
 
     </com.google.android.material.textfield.TextInputLayout>

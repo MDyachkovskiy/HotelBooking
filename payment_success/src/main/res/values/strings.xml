@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="order_been_payed">Заказ оплачен</string>
+    <string name="exit_button_text">Супер!</string>
+    <string name="order_is_processing">Ваш заказ принят в работу</string>
+    <string name="order_describing_mock">Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+    <string name="order_confirmation">Подтверждение заказа №%1$d может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление</string>
+
+</resources>

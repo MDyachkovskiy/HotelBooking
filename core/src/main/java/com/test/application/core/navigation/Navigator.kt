@@ -7,5 +7,8 @@ interface Navigator {
     fun navigateFromRoomListToHomeFragment()
     fun navigateFromRoomListToBooking()
     fun navigateFromBookingToRoomList()
+    fun navigateFromBookingToPaymentSuccess()
+    fun navigateFromPaymentSuccessToHome()
+    fun navigateFromPaymentSuccessToBooking()
 
 }
