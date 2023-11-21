@@ -40,7 +40,6 @@
                 app:ci_height="7dp"
                 app:ci_width="7dp"
                 app:ci_margin="5dp"
-                app:ci_drawable="@drawable/custom_indicator"
                 android:paddingHorizontal="@dimen/margin_10dp_small"
                 android:paddingVertical="@dimen/margin_5dp_small"
                 android:layout_marginBottom="@dimen/margin_8dp_small"
@@ -159,6 +158,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/booking_button"
         style="@style/booking_button_text_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

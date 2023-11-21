@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxStrokeWidth">0dp</item>
         <item name="boxBackgroundColor">@color/edit_text_background</item>
         <item name="boxCornerRadiusTopStart">10dp</item>

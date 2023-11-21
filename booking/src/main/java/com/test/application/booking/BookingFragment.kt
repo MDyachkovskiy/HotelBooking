@@ -8,8 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.test.application.R
 import com.test.application.core.domain.Booking
+import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
-import com.test.application.core.utilities.formatPrice
+import com.test.application.core.utilities.formatExactPrice
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import kotlinx.coroutines.launch
@@ -30,7 +31,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun initButtons(data: Booking) {
-        val totalPrice = formatPrice(calculateTotalTourPrice(data))
+        val totalPrice = formatExactPrice(calculateTotalTourPrice(data))
         binding.payButton.text = getString(R.string.pay_button_text, totalPrice)
     }
 
@@ -49,10 +50,10 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
             tvRoom.text = data.room
             tvNutrition.text = data.nutrition
 
-            tvTourPrice.text = formatPrice(data.tourPrice)
-            tvFuelCharge.text = formatPrice(data.fuelCharge)
-            tvServiceCharge.text = formatPrice(data.serviceCharge)
-            tvTourPrice.text = formatPrice(calculateTotalTourPrice(data))
+            tvTourPrice.text = formatExactPrice(data.tourPrice)
+            tvFuelCharge.text = formatExactPrice(data.fuelCharge)
+            tvServiceCharge.text = formatExactPrice(data.serviceCharge)
+            tvTotalPrice.text = formatExactPrice(calculateTotalTourPrice(data))
         }
     }
 
@@ -66,7 +67,14 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewModel()
+        initBackButton()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun initBackButton() {
+        binding.backButton.setOnClickListener {
+            (activity as? Navigator)?.navigateFromBookingToRoomList()
+        }
     }
 
     private fun initViewModel() {

@@ -16,7 +16,7 @@ class HotelImageAdapter(
         fun bind(imageUrl: String) {
             binding.imageView.load(imageUrl) {
                 crossfade(true)
-                placeholder(com.test.application.core.R.drawable.progress_bar)
+                placeholder(com.test.application.core.R.drawable.default_placeholder)
                 error(com.test.application.core.R.drawable.default_placeholder)
             }
         }

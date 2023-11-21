@@ -18,6 +18,7 @@ class RoomListAdapter(
 ) : RecyclerView.Adapter<RoomListAdapter.RoomViewHolder>() {
 
     private val rooms = initialRooms.toMutableList()
+    var listener: (() -> Unit)? = null
 
     fun updateData(newRooms: List<Room>) {
         rooms.clear()
@@ -31,6 +32,10 @@ class RoomListAdapter(
             initTextInformation(room)
             initImages(room.imageUrls)
             initPeculiaritiesChips(room.peculiarities)
+
+            binding.bookingButton.setOnClickListener {
+                listener?.invoke()
+            }
         }
 
         private fun initPeculiaritiesChips(peculiarities: List<String>?) {
