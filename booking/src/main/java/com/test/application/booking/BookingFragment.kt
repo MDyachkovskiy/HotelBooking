@@ -1,10 +1,13 @@
 package com.test.application.booking
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Lifecycle
@@ -18,6 +21,7 @@ import com.test.application.core.utilities.formatExactPrice
 import com.test.application.core.utilities.getOrdinalTourist
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
+import com.test.application.databinding.TouristInfoBlockBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -87,12 +91,59 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun addNewTouristBlock() {
-        val touristInfoBlock = createTouristInfoBlock()
-        updateTouristTitle(touristInfoBlock, ++touristCount)
-        setLayoutTopMargin(touristInfoBlock)
-        addTouristBlockToContainer(touristInfoBlock)
-        updateLayoutConstraints(touristInfoBlock)
-        lastAddedView = touristInfoBlock
+        val touristBlockBinding = createTouristInfoBlock()
+        updateTouristTitle(touristBlockBinding, ++touristCount)
+        setLayoutTopMargin(touristBlockBinding.root)
+        addTouristBlockToContainer(touristBlockBinding.root)
+        updateLayoutConstraints(touristBlockBinding.root)
+        setupOpenCloseButtonListener(touristBlockBinding)
+        lastAddedView = touristBlockBinding.root
+        setInitialVisibility(touristBlockBinding, true)
+    }
+
+    private fun setInitialVisibility(touristBlockBinding: TouristInfoBlockBinding, isVisible: Boolean) {
+        with(touristBlockBinding) {
+            val textInputLayouts = listOf(etName, etSecondName,
+                etCitizenship, etBirthDate, etPassportNumber, etPassportExpiringDate)
+            textInputLayouts.forEach { layout ->
+                layout.visibility = if (isVisible) View.VISIBLE else View.GONE
+            }
+            openButtonArrow.rotation = if (isVisible) 0f else 180f
+        }
+    }
+
+    private fun setupOpenCloseButtonListener(touristBlockBinding: TouristInfoBlockBinding) {
+        with(touristBlockBinding) {
+            openButton.setOnClickListener {
+                val isCurrentlyVisible = etName.visibility == View.VISIBLE
+                animateVisibility(this, !isCurrentlyVisible)
+                animateArrowRotation(openButtonArrow, !isCurrentlyVisible)
+            }
+        }
+    }
+
+    private fun animateVisibility(touristBlockBinding: TouristInfoBlockBinding, isVisible: Boolean) {
+        with(touristBlockBinding) {
+            val textInputLayouts = listOf(etName,etSecondName,etCitizenship,etBirthDate,
+                etPassportNumber, etPassportExpiringDate)
+
+            TransitionManager.beginDelayedTransition(binding.dynamicContainerForNewTourist,
+                AutoTransition().apply {
+                    duration = 300
+                })
+
+            textInputLayouts.forEach { layout ->
+                layout.visibility = if (isVisible) View.VISIBLE else View.GONE
+            }
+        }
+    }
+
+    private fun animateArrowRotation(arrowView: ImageView, isExpanded: Boolean) {
+        val rotationAngle = if (isExpanded) 0f else 180f
+        ObjectAnimator.ofFloat(arrowView, "rotation", rotationAngle).apply {
+            duration = 300
+            start()
+        }
     }
 
     private fun updateLayoutConstraints(touristInfoBlock: View) {
@@ -120,22 +171,20 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         touristInfoBlock.layoutParams = layoutParams
     }
 
-    private fun updateTouristTitle(touristInfoBlock: View, touristCount: Int) {
-        val titleTextView = touristInfoBlock
-            .findViewById<TextView>(R.id.tourist_information_block_title)
-        titleTextView.text = getOrdinalTourist(touristCount)
+    private fun updateTouristTitle(touristBlockBinding: TouristInfoBlockBinding, touristCount: Int) {
+        touristBlockBinding.touristInformationBlockTitle.text = getOrdinalTourist(touristCount)
     }
 
-    private fun createTouristInfoBlock(): View {
-        return LayoutInflater.from(requireContext())
-            .inflate(R.layout.tourist_info_block,
-                binding.dynamicContainerForNewTourist,
-                false)
-            .apply {
-                if(id == View.NO_ID) {
-                    id = View.generateViewId()
-                }
-            }
+    private fun createTouristInfoBlock(): TouristInfoBlockBinding {
+        val touristInfoBlockBinding = TouristInfoBlockBinding.inflate(
+            LayoutInflater.from(requireContext()),
+            binding.dynamicContainerForNewTourist,
+            false
+        )
+        if(touristInfoBlockBinding.root.id == View.NO_ID) {
+            touristInfoBlockBinding.root.id = View.generateViewId()
+        }
+        return touristInfoBlockBinding
     }
 
     private fun initBackButton() {
