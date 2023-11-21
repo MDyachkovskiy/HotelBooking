@@ -46,5 +46,6 @@
     <string name="price_calculation_total_mock">198 036 ₽</string>
     <string name="pay_button_mock">Оплатить 198 036 ₽</string>
     <string name="pay_button_text">Оплатить %1$s</string>
+    <string name="tourist_count">Турист %d</string>
 
 </resources>

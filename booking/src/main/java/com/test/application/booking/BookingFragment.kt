@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +15,7 @@ import com.test.application.core.domain.Booking
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
 import com.test.application.core.utilities.formatExactPrice
+import com.test.application.core.utilities.getOrdinalTourist
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import kotlinx.coroutines.launch
@@ -25,6 +28,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     private val model: BookingViewModel by viewModel()
 
     private var lastAddedView: View? = null
+    private var touristCount = 1
     override fun findProgressBar(): FrameLayout {
         return binding.progressBar
     }
@@ -77,29 +81,61 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun initAddTouristButton() {
-        with(binding) {
-           touristAddButton.setOnClickListener {
-               val touristInfoBlock = LayoutInflater.from(requireContext())
-                   .inflate(R.layout.tourist_info_block, dynamicContainerForNewTourist, false)
-
-               if(touristInfoBlock.id == View.NO_ID) {
-                   touristInfoBlock.id = View.generateViewId()
-               }
-
-               dynamicContainerForNewTourist.addView(touristInfoBlock)
-
-               val constraintSet = ConstraintSet()
-               constraintSet.clone(dynamicContainerForNewTourist)
-               constraintSet.connect(
-                   touristInfoBlock.id,
-                   ConstraintSet.TOP,
-                   lastAddedView?.id ?: ConstraintSet.PARENT_ID,
-                   if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM)
-               constraintSet.applyTo(dynamicContainerForNewTourist)
-
-               lastAddedView = touristInfoBlock
-            }
+        binding.touristAddButton.setOnClickListener {
+            addNewTouristBlock()
         }
+    }
+
+    private fun addNewTouristBlock() {
+        val touristInfoBlock = createTouristInfoBlock()
+        updateTouristTitle(touristInfoBlock, ++touristCount)
+        setLayoutTopMargin(touristInfoBlock)
+        addTouristBlockToContainer(touristInfoBlock)
+        updateLayoutConstraints(touristInfoBlock)
+        lastAddedView = touristInfoBlock
+    }
+
+    private fun updateLayoutConstraints(touristInfoBlock: View) {
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(binding.dynamicContainerForNewTourist)
+        constraintSet.connect(
+            touristInfoBlock.id,
+            ConstraintSet.TOP,
+            lastAddedView?.id ?: ConstraintSet.PARENT_ID,
+            if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM)
+        constraintSet.applyTo(binding.dynamicContainerForNewTourist)
+    }
+
+    private fun addTouristBlockToContainer(touristInfoBlock: View) {
+        binding.dynamicContainerForNewTourist.addView(touristInfoBlock)
+    }
+
+    private fun setLayoutTopMargin(touristInfoBlock: View) {
+        val layoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        ).apply{
+            topMargin = (8 * resources.displayMetrics.density).toInt()
+        }
+        touristInfoBlock.layoutParams = layoutParams
+    }
+
+    private fun updateTouristTitle(touristInfoBlock: View, touristCount: Int) {
+        val titleTextView = touristInfoBlock
+            .findViewById<TextView>(R.id.tourist_information_block_title)
+        titleTextView.text = getOrdinalTourist(touristCount)
+    }
+
+    private fun createTouristInfoBlock(): View {
+        return LayoutInflater.from(requireContext())
+            .inflate(R.layout.tourist_info_block,
+                binding.dynamicContainerForNewTourist,
+                false)
+            .apply {
+                if(id == View.NO_ID) {
+                    id = View.generateViewId()
+                }
+            }
     }
 
     private fun initBackButton() {
