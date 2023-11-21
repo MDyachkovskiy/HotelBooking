@@ -16,6 +16,7 @@ import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.test.application.R
 import com.test.application.core.domain.Booking
@@ -90,7 +91,43 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         setupInitialTouristBlock()
         setupPhoneEditText()
         setupEmailEditText()
+        setupPayButton()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setupPayButton() {
+        binding.payButton.setOnClickListener {
+            validateEditFields()
+        }
+    }
+
+    private fun validateEditFields() {
+        val touristInfoView = binding.touristInformationBlock
+
+        val textInputLayouts = listOf(
+            touristInfoView.findViewById(R.id.et_name),
+            touristInfoView.findViewById(R.id.et_second_name),
+            touristInfoView.findViewById(R.id.et_citizenship),
+            touristInfoView.findViewById(R.id.et_birth_date),
+            touristInfoView.findViewById(R.id.et_passport_number),
+            touristInfoView.findViewById<TextInputLayout>(R.id.et_passport_expiring_date)
+        )
+        var allFieldsValid = true
+        textInputLayouts.forEach { layout ->
+            if (layout.editText?.text.isNullOrEmpty()) {
+                setFieldErrorColor(layout)
+                allFieldsValid = false
+            } else {
+                resetEditTextFieldToDefaultColor(layout)
+            }
+        }
+
+        if (allFieldsValid) {
+            // переход в итоговый фрагмент
+        } else {
+            showErrorToast(getString(R.string.fill_all_necessary_edits))
+        }
+
     }
 
     private fun setupEmailEditText() {
@@ -101,33 +138,37 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         emailEditText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 if (!isValidEmail(emailEditText.text.toString())) {
-                    val alertColor = ContextCompat
-                        .getColor(
-                            requireContext(),
-                            com.test.application.core.R.color.edit_text_alert
-                        )
-
-                    val backgroundColor = ColorUtils
-                        .setAlphaComponent(
-                            alertColor, 38
-                        )
-
-                    emailLayout.boxBackgroundColor = backgroundColor
-                    showEmailErrorToast()
+                    setFieldErrorColor(emailLayout)
+                    showErrorToast(getString(R.string.incorrect_email))
                 } else {
-                    emailLayout.boxBackgroundColor = ContextCompat
-                        .getColor(
-                            requireContext(),
-                            com.test.application.core.R.color.edit_text_background
-                        )
+                    resetEditTextFieldToDefaultColor(emailLayout)
                 }
             }
         }
     }
 
-    private fun showEmailErrorToast() {
-        Toast.makeText(requireContext(), getString(R.string.incorrect_email), Toast.LENGTH_SHORT)
+    private fun showErrorToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT)
             .show()
+    }
+
+    private fun setFieldErrorColor(textInputLayout: TextInputLayout) {
+        val alertColor = ContextCompat
+            .getColor(
+                requireContext(),
+                com.test.application.core.R.color.edit_text_alert
+            )
+        val backgroundColor = ColorUtils
+            .setAlphaComponent(alertColor, 38)
+        textInputLayout.boxBackgroundColor = backgroundColor
+    }
+
+    private fun resetEditTextFieldToDefaultColor(textInputLayout: TextInputLayout) {
+        textInputLayout.boxBackgroundColor = ContextCompat
+            .getColor(
+                requireContext(),
+                com.test.application.core.R.color.edit_text_background
+            )
     }
 
     private fun setupPhoneEditText() {

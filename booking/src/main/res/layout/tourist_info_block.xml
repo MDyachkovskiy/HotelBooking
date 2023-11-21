@@ -52,6 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tourist_information_block_title">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_name"
@@ -74,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_name">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_second_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_second_name"
@@ -96,6 +98,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_second_name">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_citizenship"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_citizenship"
@@ -118,6 +121,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_citizenship">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_birth_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_date_of_birth"
@@ -140,6 +144,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_birth_date">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_passport_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_passport_number"
@@ -164,6 +169,7 @@
         app:layout_constraintTop_toBottomOf="@id/et_passport_number">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_passport_expiring_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/tourist_information_passport_expiring_date"

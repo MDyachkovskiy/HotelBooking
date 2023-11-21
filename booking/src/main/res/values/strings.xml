@@ -48,5 +48,6 @@
     <string name="tourist_count">Турист %d</string>
 
     <string name="incorrect_email">Некорректный email</string>
+    <string name="fill_all_necessary_edits">Необходимо заполнить все нужные поля</string>
 
 </resources>
