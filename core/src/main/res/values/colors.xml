@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    //HomeFragment
+    <color name="rating_color">#FFA800</color>
+    <color name="rating_background_color">#33FFC700</color>
+    <color name="address_text_color">#0D72FF</color>
+    <color name="price_description_color">#828796</color>
+    <color name="hotel_fragment_background_color">#F6F6F9</color>
+    <color name="hotel_description_text">#E6000000</color>
+    <color name="description_details_block_background">#FBFBFC</color>
+    <color name="description_details_block_title_color">#2C3035</color>
+    <color name="description_details_block_text_color">#828796</color>
+    <color name="description_details_border_color">#D9828796</color>
+    <color name="button_color">#0D72FF</color>
+    <color name="booking_button_block_border">#E8E9EC</color>
+    <color name="peculiarities_chip_background">#FBFBFC</color>
+    <color name="peculiarities_text_color">#828796</color>
+
+    //RoomListFragment
+    <color name="room_list_fragment_background_color">#F6F6F9</color>
+    <color name="room_details_buttom_background_color">#1A0D72FF</color>
+    <color name="room_details_button_text">#0D72FF</color>
+
+    //BookingFragment
+    <color name="tour_details_label_text_color">#828796</color>
+    <color name="edit_text_background">#F6F6F9</color>
+    <color name="edit_text_hint_color">#A9ABB7</color>
+    <color name="edit_text_appearing_color">#14142B</color>
+    <color name="confidential_alert_text_color">#828796</color>
+    <color name="open_close_button_color">#1A0D72FF</color>
+    <color name="add_button_color">#0D72FF</color>
+    <color name="total_price_text_color">#0D72FF</color>
+    <color name="edit_text_alert">#EB5757</color>
+
+    //PaymentSuccess
+    <color name="circle_frame_background_color">#F6F6F9</color>
+    <color name="order_describing_text_color">#828796</color>
+
+</resources>

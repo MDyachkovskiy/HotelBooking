@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //TextSize
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_17sp">17sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_30sp">30sp</dimen>
+
+    //Margin
+    <dimen name="margin_5dp_small">5dp</dimen>
+    <dimen name="margin_10dp_small">10dp</dimen>
+
+    <dimen name="chip_line_height">19.2dp</dimen>
+    <dimen name="chip_corner_radius">5dp</dimen>
+
+</resources>
