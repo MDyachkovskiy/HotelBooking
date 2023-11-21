@@ -8,17 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.test.application.R
 import com.test.application.core.domain.Booking
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
 import com.test.application.core.utilities.formatExactPrice
 import com.test.application.core.utilities.getOrdinalTourist
+import com.test.application.core.utilities.isValidEmail
+import com.test.application.core.utilities.setupDoneActionForEditText
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import com.test.application.databinding.TouristInfoBlockBinding
@@ -82,7 +88,57 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         initBackButton()
         initAddTouristButton()
         setupInitialTouristBlock()
+        setupPhoneEditText()
+        setupEmailEditText()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setupEmailEditText() {
+        val emailEditText = binding.editTextEmail
+        val emailLayout = binding.etEmail
+        setupDoneActionForEditText(emailEditText)
+
+        emailEditText.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                if (!isValidEmail(emailEditText.text.toString())) {
+                    val alertColor = ContextCompat
+                        .getColor(
+                            requireContext(),
+                            com.test.application.core.R.color.edit_text_alert
+                        )
+
+                    val backgroundColor = ColorUtils
+                        .setAlphaComponent(
+                            alertColor, 38
+                        )
+
+                    emailLayout.boxBackgroundColor = backgroundColor
+                    showEmailErrorToast()
+                } else {
+                    emailLayout.boxBackgroundColor = ContextCompat
+                        .getColor(
+                            requireContext(),
+                            com.test.application.core.R.color.edit_text_background
+                        )
+                }
+            }
+        }
+    }
+
+    private fun showEmailErrorToast() {
+        Toast.makeText(requireContext(), getString(R.string.incorrect_email), Toast.LENGTH_SHORT)
+            .show()
+    }
+
+    private fun setupPhoneEditText() {
+        val editTextPhone = binding.editTextPhoneNumber
+        setupDoneActionForEditText(editTextPhone)
+        val listener = MaskedTextChangedListener(
+            format = "+7 ([000]) [000]-[00]-[00]",
+            field = editTextPhone
+        )
+        editTextPhone.addTextChangedListener(listener)
+        editTextPhone.onFocusChangeListener = listener
     }
 
     private fun setupInitialTouristBlock() {
@@ -108,10 +164,15 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         setInitialVisibility(touristBlockBinding, true)
     }
 
-    private fun setInitialVisibility(touristBlockBinding: TouristInfoBlockBinding, isVisible: Boolean) {
+    private fun setInitialVisibility(
+        touristBlockBinding: TouristInfoBlockBinding,
+        isVisible: Boolean
+    ) {
         with(touristBlockBinding) {
-            val textInputLayouts = listOf(etName, etSecondName,
-                etCitizenship, etBirthDate, etPassportNumber, etPassportExpiringDate)
+            val textInputLayouts = listOf(
+                etName, etSecondName,
+                etCitizenship, etBirthDate, etPassportNumber, etPassportExpiringDate
+            )
             textInputLayouts.forEach { layout ->
                 layout.visibility = if (isVisible) View.VISIBLE else View.GONE
             }
@@ -129,10 +190,15 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         }
     }
 
-    private fun animateVisibility(touristBlockBinding: TouristInfoBlockBinding, isVisible: Boolean) {
+    private fun animateVisibility(
+        touristBlockBinding: TouristInfoBlockBinding,
+        isVisible: Boolean
+    ) {
         with(touristBlockBinding) {
-            val textInputLayouts = listOf(etName,etSecondName,etCitizenship,etBirthDate,
-                etPassportNumber, etPassportExpiringDate)
+            val textInputLayouts = listOf(
+                etName, etSecondName, etCitizenship, etBirthDate,
+                etPassportNumber, etPassportExpiringDate
+            )
 
             TransitionManager.beginDelayedTransition(binding.dynamicContainerForNewTourist,
                 AutoTransition().apply {
@@ -160,7 +226,8 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
             touristInfoBlock.id,
             ConstraintSet.TOP,
             lastAddedView?.id ?: ConstraintSet.PARENT_ID,
-            if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM)
+            if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM
+        )
         constraintSet.applyTo(binding.dynamicContainerForNewTourist)
     }
 
@@ -172,13 +239,16 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         val layoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.MATCH_PARENT,
             ConstraintLayout.LayoutParams.WRAP_CONTENT
-        ).apply{
+        ).apply {
             topMargin = (8 * resources.displayMetrics.density).toInt()
         }
         touristInfoBlock.layoutParams = layoutParams
     }
 
-    private fun updateTouristTitle(touristBlockBinding: TouristInfoBlockBinding, touristCount: Int) {
+    private fun updateTouristTitle(
+        touristBlockBinding: TouristInfoBlockBinding,
+        touristCount: Int
+    ) {
         touristBlockBinding.touristInformationBlockTitle.text = getOrdinalTourist(touristCount)
     }
 
@@ -188,7 +258,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
             binding.dynamicContainerForNewTourist,
             false
         )
-        if(touristInfoBlockBinding.root.id == View.NO_ID) {
+        if (touristInfoBlockBinding.root.id == View.NO_ID) {
             touristInfoBlockBinding.root.id = View.generateViewId()
         }
         return touristInfoBlockBinding
@@ -203,7 +273,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     private fun initViewModel() {
         lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                model.stateFlow.collect {appState ->
+                model.stateFlow.collect { appState ->
                     renderData(appState)
                 }
             }

@@ -24,7 +24,6 @@
 
     <string name="client_information_title">Информация о покупателе</string>
     <string name="phone_number_hint">Номер телефона</string>
-    <string name="phone_number_mock">+7 (951) 555–99–00</string>
     <string name="email_hint">Почта</string>
     <string name="confidential_alert">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
     <string name="first_tourist">Первый турист</string>
@@ -47,5 +46,7 @@
     <string name="pay_button_mock">Оплатить 198 036 ₽</string>
     <string name="pay_button_text">Оплатить %1$s</string>
     <string name="tourist_count">Турист %d</string>
+
+    <string name="incorrect_email">Некорректный email</string>
 
 </resources>

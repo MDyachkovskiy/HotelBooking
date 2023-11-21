@@ -48,7 +48,10 @@ dependencies {
     //Design
     implementation ("com.google.android.material:material:1.10.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("com.github.vacxe:phonemask:1.0.5")
+    implementation ("com.redmadrobot:input-mask-android:7.2.4")
 
     //Koin
     implementation ("io.insert-koin:koin-android:3.4.2")
+
 }
