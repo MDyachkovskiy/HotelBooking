@@ -1,8 +1,10 @@
 package com.test.application.booking
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -21,6 +23,8 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 ) {
 
     private val model: BookingViewModel by viewModel()
+
+    private var lastAddedView: View? = null
     override fun findProgressBar(): FrameLayout {
         return binding.progressBar
     }
@@ -68,7 +72,34 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewModel()
         initBackButton()
+        initAddTouristButton()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun initAddTouristButton() {
+        with(binding) {
+           touristAddButton.setOnClickListener {
+               val touristInfoBlock = LayoutInflater.from(requireContext())
+                   .inflate(R.layout.tourist_info_block, dynamicContainerForNewTourist, false)
+
+               if(touristInfoBlock.id == View.NO_ID) {
+                   touristInfoBlock.id = View.generateViewId()
+               }
+
+               dynamicContainerForNewTourist.addView(touristInfoBlock)
+
+               val constraintSet = ConstraintSet()
+               constraintSet.clone(dynamicContainerForNewTourist)
+               constraintSet.connect(
+                   touristInfoBlock.id,
+                   ConstraintSet.TOP,
+                   lastAddedView?.id ?: ConstraintSet.PARENT_ID,
+                   if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM)
+               constraintSet.applyTo(dynamicContainerForNewTourist)
+
+               lastAddedView = touristInfoBlock
+            }
+        }
     }
 
     private fun initBackButton() {
@@ -91,5 +122,4 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     private fun requestData() {
         model.loadBookingInfo()
     }
-
 }
