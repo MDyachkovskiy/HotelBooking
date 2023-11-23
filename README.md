@@ -18,6 +18,10 @@ Features
 <img src="https://gdurl.com/0c-g" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/KkP8" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/eHLm" alt="project-screenshot" width="200" height="400/">
 <img src="https://gdurl.com/7TwZ" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/a008" alt="project-screenshot" width="200" height="400/">
 
+<h2>Application Demo Video:</h2>
+
+<p>Watch a demo of the application here: <a href="https://gdurl.com/UYXQ" target="_blank">Hotel Booking App Demo Video</a></p>
+
 <h2>💻 Built with</h2>
 
 Within the scope of this educational course the following knowledge and technologies were acquired:
