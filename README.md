@@ -33,6 +33,6 @@ Within the scope of this educational course the following knowledge and technolo
 *   Coroutines
 *   Flow
 *   MVVM
-*   Multimodal
+*   Multimodular app
 *   ViewPager2
 *   CircleIndicator3
