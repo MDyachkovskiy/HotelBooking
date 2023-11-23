@@ -4,9 +4,9 @@
   This repository contains a hotel booking application developed as a part of a technical interview process. The application facilitates room reservations in a fixed hotel, demonstrating essential functionalities typical to online booking systems.
 
 Features
-<b>Hotel Screen</b>: The initial screen displays the selected hotel, featuring a photo carousel for hotel images. Users can navigate to the room selection screen via a dedicated button.
-<b>Room Selection Screen</b>: Accessed from the Hotel screen, this screen lists available rooms. Each room entry includes essential information but the "More Details" option is not functional. Selecting a room leads to the Booking screen.
-<b>Booking Screen</b>: This screen, accessed upon room selection, includes:
+<p><b>Hotel Screen</b>: The initial screen displays the selected hotel, featuring a photo carousel for hotel images. Users can navigate to the room selection screen via a dedicated button.</p>
+</p><b>Room Selection Screen</b>: Accessed from the Hotel screen, this screen lists available rooms. Each room entry includes essential information but the "More Details" option is not functional. Selecting a room leads to the Booking screen.</p>
+</p><b>Booking Screen</b>: This screen, accessed upon room selection, includes:</p>
 <ul>
   <li>Booking details: Departure and arrival cities, booking dates, number of nights, hotel and room names, meal plan (data fetched via API).</li>
   <li>Customer Information: Fields for phone number (with an automatic mask for formatting) and email (with standard validation).</li>
