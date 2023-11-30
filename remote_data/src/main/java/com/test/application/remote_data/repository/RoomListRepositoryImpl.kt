@@ -1,7 +1,7 @@
 package com.test.application.remote_data.repository
 
 import com.test.application.core.domain.Room
-import com.test.application.core.mapper.mapRoomDTOToRoom
+import com.test.application.remote_data.mapper.mapRoomDTOToRoom
 import com.test.application.remote_data.api.RoomListService
 import com.test.application.core.repository.RoomListRepository
 
