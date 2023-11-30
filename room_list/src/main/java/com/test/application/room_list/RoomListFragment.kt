@@ -45,7 +45,7 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
     private fun initRecyclerView() {
         val recyclerView = binding.roomRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        roomListAdapter = RoomListAdapter(emptyList(), requireContext())
+        roomListAdapter = RoomListAdapter(requireContext())
         recyclerView.adapter = roomListAdapter
         roomListAdapter.listener = {
             (activity as? Navigator)?.navigateFromRoomListToBooking()
