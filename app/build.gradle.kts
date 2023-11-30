@@ -55,34 +55,29 @@ dependencies {
     implementation (project(":core"))
     implementation (project(":room_list"))
     implementation (project(":payment_success"))
+    implementation (project(":booking"))
 
     //Kotlin
-    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation (Kotlin.core)
 
     //AndroidX
-    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation (AndroidX.appcompat)
 
     //Design
-    implementation ("com.google.android.material:material:1.10.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation (Design.material)
+    implementation (Design.constraint_layout)
 
     //Koin
-    implementation ("io.insert-koin:koin-android:3.4.2")
-    implementation ("io.insert-koin:koin-core:3.4.2")
-    implementation ("io.insert-koin:koin-androidx-navigation:3.4.0")
-    implementation ("io.insert-koin:koin-androidx-compose:3.4.0")
+    implementation (Koin.android)
+    implementation (Koin.core)
+    implementation (Koin.navigation)
+    implementation (Koin.androidx)
 
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation (Retrofit.main)
+    implementation (Retrofit.gson_convertor)
 
     //Navigation
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.5")
-    implementation(project(mapOf("path" to ":booking")))
-
-    //Test
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    implementation (Navigation.fragment_ktx)
+    implementation (Navigation.ui_ktx)
 }

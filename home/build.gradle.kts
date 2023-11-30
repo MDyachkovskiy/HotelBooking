@@ -44,25 +44,20 @@ dependencies {
     implementation (project(":core"))
 
     //Kotlin
-    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation (Kotlin.core)
 
     //AndroidX
-    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation (AndroidX.appcompat)
 
     //Design
-    implementation ("com.google.android.material:material:1.10.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
-    implementation ("me.relex:circleindicator:2.1.6")
+    implementation (Design.material)
+    implementation (Design.constraint_layout)
+    implementation (Design.view_pager2)
+    implementation (Design.circle_indicator)
 
     //Koin
-    implementation ("io.insert-koin:koin-android:3.4.2")
+    implementation (Koin.android)
 
     //Coil
-    implementation ("io.coil-kt:coil:2.4.0")
-
-    //Test
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    implementation (Coil.coil_kt)
 }
