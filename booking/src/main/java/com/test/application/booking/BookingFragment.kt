@@ -40,6 +40,8 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 
     private var lastAddedView: View? = null
     private var touristCount = 1
+
+    private val resources = requireContext().resources
     override fun findProgressBar(): FrameLayout {
         return binding.progressBar
     }
@@ -50,7 +52,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun initButtons(data: Booking) {
-        val totalPrice = formatExactPrice(calculateTotalTourPrice(data))
+        val totalPrice = formatExactPrice(calculateTotalTourPrice(data), resources)
         binding.payButton.text = getString(R.string.pay_button_text, totalPrice)
     }
 
@@ -69,10 +71,10 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
             tvRoom.text = data.room
             tvNutrition.text = data.nutrition
 
-            tvTourPrice.text = formatExactPrice(data.tourPrice)
-            tvFuelCharge.text = formatExactPrice(data.fuelCharge)
-            tvServiceCharge.text = formatExactPrice(data.serviceCharge)
-            tvTotalPrice.text = formatExactPrice(calculateTotalTourPrice(data))
+            tvTourPrice.text = formatExactPrice(data.tourPrice, resources)
+            tvFuelCharge.text = formatExactPrice(data.fuelCharge, resources)
+            tvServiceCharge.text = formatExactPrice(data.serviceCharge, resources)
+            tvTotalPrice.text = formatExactPrice(calculateTotalTourPrice(data), resources)
         }
     }
 
@@ -175,7 +177,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         val editTextPhone = binding.editTextPhoneNumber
         setupDoneActionForEditText(editTextPhone)
         val listener = MaskedTextChangedListener(
-            format = "+7 ([000]) [000]-[00]-[00]",
+            format = getString(R.string.phone_format),
             field = editTextPhone
         )
         editTextPhone.addTextChangedListener(listener)
@@ -290,7 +292,8 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         touristBlockBinding: TouristInfoBlockBinding,
         touristCount: Int
     ) {
-        touristBlockBinding.touristInformationBlockTitle.text = getOrdinalTourist(touristCount)
+        touristBlockBinding.touristInformationBlockTitle.text =
+            getOrdinalTourist(touristCount, resources)
     }
 
     private fun createTouristInfoBlock(): TouristInfoBlockBinding {

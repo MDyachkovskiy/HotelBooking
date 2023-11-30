@@ -5,6 +5,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
@@ -13,17 +14,18 @@ import com.test.application.core.utilities.formatPrice
 import com.test.application.room_list.databinding.ItemRoomBinding
 
 class RoomListAdapter(
-    initialRooms: List<Room>,
     private val context: Context
 ) : RecyclerView.Adapter<RoomListAdapter.RoomViewHolder>() {
 
-    private val rooms = initialRooms.toMutableList()
+    private var rooms: List<Room> = listOf()
     var listener: (() -> Unit)? = null
 
     fun updateData(newRooms: List<Room>) {
-        rooms.clear()
-        rooms.addAll(newRooms)
-        notifyDataSetChanged()
+        val diffcallback = Diffcallback(rooms, newRooms)
+        val diffResult =DiffUtil.calculateDiff(diffcallback)
+
+        rooms = newRooms
+        diffResult.dispatchUpdatesTo(this)
     }
     inner class RoomViewHolder(
         private val binding: ItemRoomBinding
@@ -79,7 +81,7 @@ class RoomListAdapter(
         private fun initTextInformation(room: Room) {
             with(binding) {
                 tvRoomName.text = room.name
-                tvPrice.text = formatPrice(room.price)
+                tvPrice.text = formatPrice(room.price, context.resources)
                 tvPriceDescription.text = room.pricePer
             }
         }

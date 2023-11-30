@@ -33,7 +33,10 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.core:core-ktx:1.12.0")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    //Modules
+    implementation (project(":core"))
+
+    implementation (Kotlin.core)
+    implementation (AndroidX.appcompat)
+    implementation (Retrofit.main)
 }

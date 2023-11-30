@@ -15,6 +15,7 @@ import com.test.application.core.domain.AboutTheHotel
 import com.test.application.core.domain.Hotel
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
+import com.test.application.core.utilities.HOME_FRAGMENT_ARG
 import com.test.application.core.utilities.formatPrice
 import com.test.application.core.view.BaseFragment
 import com.test.application.home.databinding.FragmentHomeBinding
@@ -35,7 +36,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
     private fun initButtons(data: Hotel) {
         binding.bookingButton.setOnClickListener {
             val hotelName = data.name
-            val bundle = bundleOf("hotelName" to hotelName)
+            val bundle = bundleOf(HOME_FRAGMENT_ARG to hotelName)
             (activity as? Navigator)?.navigateToRoomListFragment(bundle)
         }
     }
@@ -66,7 +67,7 @@ class HomeFragment : BaseFragment<AppState, Hotel, FragmentHomeBinding>(
         with(binding) {
             tvHotelName.text = data.name
             tvHotelAddress.text = data.address
-            tvPrice.text = formatPrice(data.minimalPrice)
+            tvPrice.text = formatPrice(data.minimalPrice, requireContext().resources)
             tvPriceDescription.text = data.priceForIt
             tvRating.text = data.rating.toString()
             tvRatingName.text = data.ratingName

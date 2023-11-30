@@ -1,4 +1,4 @@
-package com.test.application.core.mapper
+package com.test.application.remote_data.mapper
 
 import com.test.application.core.domain.AboutTheHotel
 import com.test.application.core.domain.Booking

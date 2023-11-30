@@ -50,4 +50,6 @@
     <string name="incorrect_email">Некорректный email</string>
     <string name="fill_all_necessary_edits">Необходимо заполнить все нужные поля</string>
 
+    <string name="phone_format">+7 ([000]) [000]-[00]-[00]</string>
+
 </resources>

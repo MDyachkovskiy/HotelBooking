@@ -41,13 +41,12 @@ dependencies {
     implementation (project(":core"))
 
     //Kotlin
-    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation (Kotlin.core)
 
     //AndroidX
-    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation (AndroidX.appcompat)
 
     //Design
-    implementation ("com.google.android.material:material:1.10.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-
+    implementation (Design.material)
+    implementation (Design.constraint_layout)
 }
