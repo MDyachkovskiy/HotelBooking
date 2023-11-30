@@ -1,4 +1,4 @@
-package com.test.application.remote_data.repository
+package com.test.application.core.repository
 
 interface HotelRepository<T> {
     suspend fun getData(): T

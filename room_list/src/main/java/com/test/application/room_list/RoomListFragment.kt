@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.test.application.core.domain.Room
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
@@ -45,8 +46,13 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
     private fun initRecyclerView() {
         val recyclerView = binding.roomRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
         roomListAdapter = RoomListAdapter(requireContext())
         recyclerView.adapter = roomListAdapter
+
+        val snapHelperRoom =PagerSnapHelper()
+        snapHelperRoom.attachToRecyclerView(recyclerView)
+
         roomListAdapter.listener = {
             (activity as? Navigator)?.navigateFromRoomListToBooking()
         }

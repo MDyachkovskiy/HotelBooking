@@ -81,7 +81,7 @@ class RoomListAdapter(
         private fun initTextInformation(room: Room) {
             with(binding) {
                 tvRoomName.text = room.name
-                tvPrice.text = formatPrice(room.price)
+                tvPrice.text = formatPrice(room.price, context.resources)
                 tvPriceDescription.text = room.pricePer
             }
         }

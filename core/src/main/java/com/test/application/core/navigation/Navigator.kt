@@ -10,5 +10,4 @@ interface Navigator {
     fun navigateFromBookingToPaymentSuccess()
     fun navigateFromPaymentSuccessToHome()
     fun navigateFromPaymentSuccessToBooking()
-
 }

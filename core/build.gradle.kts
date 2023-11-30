@@ -41,7 +41,6 @@ android {
 }
 
 dependencies {
-    implementation (project(":remote_data"))
     implementation (Kotlin.core)
     implementation (AndroidX.appcompat)
     implementation (Design.material)

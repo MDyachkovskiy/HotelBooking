@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+    //Modules
+    implementation (project(":core"))
+
     implementation (Kotlin.core)
     implementation (AndroidX.appcompat)
     implementation (Retrofit.main)
