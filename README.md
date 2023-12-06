@@ -26,7 +26,7 @@
 
 <h2>💻 Built with</h2>
 
-Within the scope of this educational course the following knowledge and technologies were acquired:
+Within the scope of this project's development, the following technologies were applied:
 
 *   Retrofit
 *   Koin
