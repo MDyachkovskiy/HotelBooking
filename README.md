@@ -22,7 +22,7 @@
 
 <h2>Application Demo Video:</h2>
 
-<p>Watch a demo of the application here: <a href="https://gdurl.com/UYXQ" target="_blank">Hotel Booking App Demo Video</a></p>
+<p>Watch a demo of the application here: <a href="https://gdurl.com/1xfg" target="_blank">Hotel Booking App Demo Video</a></p>
 
 <h2>💻 Built with</h2>
 
