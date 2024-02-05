@@ -1,4 +1,4 @@
-package com.test.application.room_list
+package com.test.application.room_list.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.test.application.core.domain.Room

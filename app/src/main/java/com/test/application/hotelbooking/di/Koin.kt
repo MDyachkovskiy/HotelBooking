@@ -21,7 +21,7 @@ import com.test.application.remote_data.api.RoomListService
 import com.test.application.core.repository.BookingRepository
 import com.test.application.core.repository.HotelRepository
 import com.test.application.core.repository.RoomListRepository
-import com.test.application.room_list.RoomListViewModel
+import com.test.application.room_list.view.RoomListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit

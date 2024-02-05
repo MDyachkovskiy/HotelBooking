@@ -51,6 +51,10 @@ dependencies {
     implementation ("com.github.vacxe:phonemask:1.0.5")
     implementation ("com.redmadrobot:input-mask-android:7.2.4")
 
+    //Navigation
+    implementation (Navigation.fragment_ktx)
+    implementation (Navigation.ui_ktx)
+
     //Koin
     implementation ("io.insert-koin:koin-android:3.4.2")
 

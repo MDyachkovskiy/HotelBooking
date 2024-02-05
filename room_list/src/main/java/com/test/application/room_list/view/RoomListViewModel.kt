@@ -1,4 +1,4 @@
-package com.test.application.room_list
+package com.test.application.room_list.view
 
 import com.test.application.core.interactor.RoomListInteractor
 import com.test.application.core.utilities.AppState

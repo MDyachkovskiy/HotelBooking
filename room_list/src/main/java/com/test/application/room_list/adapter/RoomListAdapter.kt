@@ -1,4 +1,4 @@
-package com.test.application.room_list
+package com.test.application.room_list.adapter
 
 import android.content.Context
 import android.util.TypedValue
@@ -11,6 +11,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.shape.CornerFamily
 import com.test.application.core.domain.Room
 import com.test.application.core.utilities.formatPrice
+import com.test.application.room_list.R
 import com.test.application.room_list.databinding.ItemRoomBinding
 
 class RoomListAdapter(

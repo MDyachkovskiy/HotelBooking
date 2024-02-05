@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.test.application.core.navigation.Navigator
 import com.test.application.payment_success.databinding.FragmentPaymentSuccessBinding
 import kotlin.random.Random
@@ -31,7 +32,7 @@ class PaymentSuccessFragment : Fragment() {
 
     private fun setupButtons() {
         binding.backButton.setOnClickListener {
-            (activity as? Navigator)?.navigateFromPaymentSuccessToBooking()
+            findNavController().navigateUp()
         }
         binding.exitButton.setOnClickListener {
             (activity as? Navigator)?.navigateFromPaymentSuccessToHome()

@@ -46,6 +46,10 @@ dependencies {
     //AndroidX
     implementation (AndroidX.appcompat)
 
+    //Navigation
+    implementation (Navigation.fragment_ktx)
+    implementation (Navigation.ui_ktx)
+
     //Design
     implementation (Design.material)
     implementation (Design.constraint_layout)

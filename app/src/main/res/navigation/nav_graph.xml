@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-        app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -10,13 +10,13 @@
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_roomListFragment"
-            app:destination="@+id/roomListFragment"/>
+            app:destination="@+id/roomListFragment" />
 
     </fragment>
 
     <fragment
         android:id="@+id/roomListFragment"
-        android:name="com.test.application.room_list.RoomListFragment"
+        android:name="com.test.application.room_list.view.RoomListFragment"
         android:label="RoomListFragment">
 
         <argument
@@ -24,12 +24,8 @@
             app:argType="java.lang.String" />
 
         <action
-            android:id="@+id/action_roomListFragment_to_homeFragment"
-            app:destination="@+id/homeFragment"/>
-
-        <action
             android:id="@+id/action_roomListFragment_to_bookingFragment"
-            app:destination="@+id/bookingFragment"/>
+            app:destination="@+id/bookingFragment" />
 
     </fragment>
 
@@ -39,12 +35,8 @@
         android:label="BookingFragment">
 
         <action
-            android:id="@+id/action_bookingFragment_to_roomListFragment"
-            app:destination="@+id/roomListFragment"/>
-
-        <action
             android:id="@+id/action_bookingFragment_to_paymentSuccess"
-            app:destination="@+id/paymentSuccessFragment"/>
+            app:destination="@+id/paymentSuccessFragment" />
 
     </fragment>
 
@@ -55,11 +47,7 @@
 
         <action
             android:id="@+id/action_paymentSuccess_to_homeFragment"
-            app:destination="@+id/homeFragment"/>
-
-        <action
-            android:id="@+id/action_paymentSuccess_to_bookingFragment"
-            app:destination="@+id/bookingFragment"/>
+            app:destination="@+id/homeFragment" />
 
     </fragment>
 

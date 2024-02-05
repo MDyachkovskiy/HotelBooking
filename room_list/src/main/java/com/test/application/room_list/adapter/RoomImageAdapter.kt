@@ -1,4 +1,4 @@
-package com.test.application.room_list
+package com.test.application.room_list.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

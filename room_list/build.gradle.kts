@@ -56,5 +56,10 @@ dependencies {
     implementation(Design.material)
     implementation (Design.view_pager2)
     implementation (Design.circle_indicator)
+    
+    //Navigation
+    implementation (Navigation.fragment_ktx)
+    implementation (Navigation.ui_ktx)
+
 
 }

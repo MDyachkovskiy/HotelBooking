@@ -17,4 +17,7 @@
     <dimen name="chip_line_height">19.2dp</dimen>
     <dimen name="chip_corner_radius">5dp</dimen>
 
+    //Margin
+    <dimen name="toolbar_height">44dp</dimen>
+
 </resources>

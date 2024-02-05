@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/room_item_background"
-    android:layout_marginTop="@dimen/margin_8dp_small">
+    android:layout_marginTop="@dimen/margin_8dp_small"
+    android:background="@drawable/room_item_background">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/room_images"
@@ -26,27 +26,27 @@
                 android:id="@+id/image_carousel"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <me.relex.circleindicator.CircleIndicator3
-                android:background="@drawable/image_indicator_background"
                 android:id="@+id/image_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_8dp_small"
+                android:background="@drawable/image_indicator_background"
                 android:gravity="center_horizontal|bottom"
-                app:ci_drawable="@drawable/custom_indicator"
-                app:ci_height="7dp"
-                app:ci_width="7dp"
-                app:ci_margin="5dp"
                 android:paddingHorizontal="@dimen/margin_10dp_small"
                 android:paddingVertical="@dimen/margin_5dp_small"
-                android:layout_marginBottom="@dimen/margin_8dp_small"
+                app:ci_drawable="@drawable/custom_indicator"
+                app:ci_height="7dp"
+                app:ci_margin="5dp"
+                app:ci_width="7dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

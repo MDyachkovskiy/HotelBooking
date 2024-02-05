@@ -1,4 +1,4 @@
-package com.test.application.room_list
+package com.test.application.room_list.view
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,15 @@ import android.widget.FrameLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.test.application.core.domain.Room
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
 import com.test.application.core.view.BaseFragment
+import com.test.application.room_list.R
+import com.test.application.room_list.adapter.RoomListAdapter
 import com.test.application.room_list.databinding.FragmentRoomListBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,7 +42,7 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
 
     private fun initButtons() {
         binding.backButton.setOnClickListener {
-            (activity as? Navigator)?.navigateFromRoomListToHomeFragment()
+            findNavController().navigateUp()
         }
     }
 

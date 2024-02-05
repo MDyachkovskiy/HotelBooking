@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/room_list_fragment_background_color"
+    android:background="@color/room_list_fragment_background_color"
     tools:context="booking.BookingFragment"
     tools:ignore="ContentDescription">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,8 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/margin_10dp_small"
-            android:src="@drawable/ic_arrow_back"
-             />
+            android:src="@drawable/ic_arrow_back" />
 
         <TextView
             android:id="@+id/booking_title"
