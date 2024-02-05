@@ -1,38 +1,32 @@
-<h1 align="center" id="title">Hotel Booking</h1>
+<h1 align="center" id="title">Гостиничное приложение</h1>
 
 <p id="description">
-  This repository contains a hotel booking application developed as a part of a technical interview process. The application facilitates room reservations in a fixed hotel, demonstrating essential functionalities typical to online booking systems.
+Приложение для бронирования номеров в гостинице, разработанное в рамках технического задания для собеседования. Приложение облегчает процесс бронирования номеров в определенном отеле, демонстрируя основные функциональные возможности, типичные для онлайн-систем бронирования.
 
-<p><b>Features</b></p>
-<p><b>Hotel Screen</b>: The initial screen displays the selected hotel, featuring a photo carousel for hotel images. Users can navigate to the room selection screen via a dedicated button.</p>
-</p><b>Room Selection Screen</b>: Accessed from the Hotel screen, this screen lists available rooms. Each room entry includes essential information but the "More Details" option is not functional. Selecting a room leads to the Booking screen.</p>
-</p><b>Booking Screen</b>: This screen, accessed upon room selection, includes:</p>
+<p><b>Особенности</b></p>
+<p><b>Экран Отеля</b>: Начальный экран отображает выбранный отель, предлагая карусель фотографий отеля. Пользователи могут перейти на экран выбора номера с помощью специальной кнопки.</p>
+</p><b>Экран Выбора Номера</b>: Доступен с экрана Отеля, этот экран перечисляет доступные номера. Каждая запись о номере включает в себя основную информацию, но опция "Больше Деталей" не функциональна. Выбор номера ведет к экрану Бронирования.</p>
+</p><b>Экран Бронирования</b>: На этот экран попадают после выбора номера, он включает:</p>
 <ul>
-  <li>Booking details: Departure and arrival cities, booking dates, number of nights, hotel and room names, meal plan (data fetched via API).</li>
-  <li>Customer Information: Fields for phone number (with an automatic mask for formatting) and email (with standard validation).</li>
-  <li>Tourist Information: Initially shows a tab for the first tourist with an option to add more tourists. Each addition creates a new tab like "Second Tourist", "Third Tourist", etc. These tabs can be expanded or collapsed.</li>
-  <li>Pricing Information: Displays tour price, fuel charge, service fee, and the total cost, calculated from the API data.</li>
+  <li>Детали бронирования: Города отправления и прибытия, даты бронирования, количество ночей, названия отеля и номера, тип питания (данные получены через API).</li>
+  <li>Информация о клиенте: Поля для номера телефона (с автоматической маской для форматирования) и электронной почты (со стандартной валидацией).</li>
+  <li>Информация о туристе: Изначально показывает вкладку для первого туриста с опцией добавления дополнительных туристов. Каждое добавление создает новую вкладку, как "Второй Турист", "Третий Турист" и т.д. Эти вкладки могут быть развернуты или свернуты.</li>
+  <li>Информация о ценообразовании: Отображает цену тура, топливный сбор, сервисный сбор и общую стоимость, рассчитанные из данных API.</li>
 </ul>
   </p>
 
-<h2>Project Screenshots:</h2>
+<h2>Скриншоты экранов</h2>
 
 <img src="https://gdurl.com/0c-g" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/KkP8" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/eHLm" alt="project-screenshot" width="200" height="400/">
 <img src="https://gdurl.com/7TwZ" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/a008" alt="project-screenshot" width="200" height="400/">
 
-<h2>Application Demo Video:</h2>
-
-<p>Watch a demo of the application here: <a href="https://gdurl.com/1xfg" target="_blank">Hotel Booking App Demo Video</a></p>
-
-<h2>💻 Built with</h2>
-
-Within the scope of this project's development, the following technologies were applied:
+<h2>💻 Используемый стек технологий:/h2>
 
 *   Retrofit
 *   Koin
 *   Coroutines
 *   Flow
-*   MVVM
-*   Multimodular app
+*   Архитектура: MVVM
+*   Многомодульность
 *   ViewPager2
 *   CircleIndicator3
