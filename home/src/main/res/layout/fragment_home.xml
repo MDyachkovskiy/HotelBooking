@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/hotel_fragment_background_color">
+    android:backgroundTint="@color/hotel_fragment_background_color"
+    tools:context="HomeFragment">
 
-    <FrameLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,9 +22,10 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/margin_10dp_small"
             android:gravity="center"
-            android:text="@string/home_title_mock" />
+            android:text="@string/home_title_mock"
+            android:textAlignment="center" />
 
-    </FrameLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
