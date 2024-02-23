@@ -13,4 +13,10 @@
     <string name="ninth_tourist">Девятый турист</string>
     <string name="tenth_tourist">Десятый турист</string>
     <string name="nth_tourist">%d-й турист</string>
+
+    //rating mock
+    <string name="rating_mock">5</string>
+    <string name="rating_name_mock">Превосходно</string>
+
+
 </resources>

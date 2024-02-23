@@ -53,11 +53,11 @@ android {
 dependencies {
 
     implementation (project(":remote_data"))
-    implementation (project(":home"))
+    implementation (project(":features:home"))
     implementation (project(":core"))
-    implementation (project(":room_list"))
-    implementation (project(":payment_success"))
-    implementation (project(":booking"))
+    implementation (project(":features:room_list"))
+    implementation (project(":features:payment_success"))
+    implementation (project(":features:booking"))
 
     //Kotlin
     implementation (Kotlin.core)

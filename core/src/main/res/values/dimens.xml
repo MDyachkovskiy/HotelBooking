@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //TextSize
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_17sp">17sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_30sp">30sp</dimen>
+
+    //Margin
+    <dimen name="margin_2dp_small">2dp</dimen>
+    <dimen name="margin_5dp_small">5dp</dimen>
+    <dimen name="margin_8dp_small">8dp</dimen>
+    <dimen name="margin_10dp_small">10dp</dimen>
+    <dimen name="margin_12dp_medium">12dp</dimen>
+    <dimen name="margin_16dp_medium">16dp</dimen>
+    <dimen name="margin_20dp_medium">20dp</dimen>
+    <dimen name="margin_40dp_large">40dp</dimen>
+
+    <dimen name="chip_line_height">19.2dp</dimen>
+    <dimen name="chip_corner_radius">5dp</dimen>
+
+    //Common
+    <dimen name="toolbar_height">44dp</dimen>
+
+
+    //Rating block
+    <dimen name="rating_icon_size">15dp</dimen>
+
+    //Home
+    <dimen name="hotel_name_height">490dp</dimen>
+    <dimen name="hotel_image_height">260dp</dimen>
+
+    //Booking screen
+    <dimen name="open_icon_size">32dp</dimen>
+    <dimen name="tourist_add_button_size">32dp</dimen>
+
+
+
+</resources>

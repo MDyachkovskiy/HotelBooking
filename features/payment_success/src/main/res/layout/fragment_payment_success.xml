@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hotel_fragment_background_color"
+    tools:context="PaymentSuccessFragment"
+    tools:ignore="contentDescription">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/navigation_bar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/margin_10dp_small"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/headline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="@dimen/margin_10dp_small"
+            android:clickable="false"
+            android:text="@string/order_been_payed"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <FrameLayout
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/circle_frame_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigation_bar">
+
+        <ImageView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center"
+            android:src="@drawable/party_popper" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/order_processing_title"
+        style="@style/order_is_processing_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+        android:layout_marginTop="248dp"
+        android:gravity="center"
+        android:text="@string/order_is_processing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigation_bar" />
+
+    <TextView
+        android:id="@+id/tv_order_describing_text"
+        style="@style/order_describing_text_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="23dp"
+        android:layout_marginTop="@dimen/margin_20dp_medium"
+        android:gravity="center"
+        android:text="@string/order_describing_mock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/order_processing_title" />
+
+    <FrameLayout
+        android:id="@+id/exit_button_block"
+        style="@style/order_is_processing_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_12dp_small"
+        android:background="@drawable/booking_button_block_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/exit_button"
+            style="@style/booking_button_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_16dp_medium"
+            android:layout_marginVertical="@dimen/margin_12dp_small"
+            android:backgroundTint="@color/button_color"
+            android:paddingVertical="@dimen/margin_15dp_small"
+            android:text="@string/exit_button_text"
+            app:cornerRadius="15dp" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

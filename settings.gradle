@@ -17,9 +17,8 @@ dependencyResolutionManagement {
 rootProject.name = "HotelBooking"
 include ':app'
 include ':core'
-include ':home'
+include ':features:home'
 include ':remote_data'
-include ':room_list'
-include ':booking'
-include ':booking'
-include ':payment_success'
+include ':features:room_list'
+include ':features:booking'
+include ':features:payment_success'
