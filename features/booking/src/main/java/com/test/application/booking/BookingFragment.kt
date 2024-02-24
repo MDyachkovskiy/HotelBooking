@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -18,9 +19,9 @@ import com.test.application.core.utilities.setupDoneActionForEditText
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import com.test.application.databinding.TouristInfoBlockBinding
-import com.test.application.features.AnimationHelper
-import com.test.application.features.FieldsValidator
-import com.test.application.features.TouristInfoManager
+import com.test.application.features.animation.AnimationHelper
+import com.test.application.features.validation.FieldsValidator
+import com.test.application.features.view_inflating.TouristInfoManager
 import com.test.application.utils.calculateTotalTourPrice
 import com.test.application.utils.formatTourDate
 import kotlinx.coroutines.launch
@@ -32,7 +33,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 
     private val model: BookingViewModel by viewModel()
     private lateinit var touristInfoManager: TouristInfoManager
-    private lateinit var fieldsValidator: FieldsValidator
+    private val fieldsValidator: FieldsValidator by lazy { FieldsValidator(requireContext()) }
     private lateinit var resources: Resources
 
     override fun findProgressBar(): FrameLayout {
@@ -130,8 +131,6 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun validateEditFields() {
-        fieldsValidator = FieldsValidator(requireContext())
-
         if (fieldsValidator.validateAll(
                 binding.touristInformationBlock,
                 binding.dynamicContainerForNewTourist,
@@ -139,18 +138,16 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
                 binding.etPhoneNumber)) {
             (activity as? Navigator)?.navigateFromBookingToPaymentSuccess()
         } else {
-            fieldsValidator.showErrorToast(getString(R.string.fill_all_necessary_edits))
+            showErrorToast(getString(R.string.fill_all_necessary_edits))
         }
     }
 
     private fun setupEmailEditText() {
         val emailEditText = binding.editTextEmail
         setupDoneActionForEditText(emailEditText)
-
         emailEditText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-                val validator = FieldsValidator(requireContext())
-                validator.validateEmail(binding.etEmail)
+                fieldsValidator.validateEmail(binding.etEmail)
             }
         }
     }
@@ -165,8 +162,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         editTextPhone.addTextChangedListener(listener)
         editTextPhone.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
-                val validator = FieldsValidator(requireContext())
-                validator.validatePhoneNumber(binding.etPhoneNumber)
+                fieldsValidator.validatePhoneNumber(binding.etPhoneNumber)
             }
         }
     }
@@ -184,5 +180,15 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 
     private fun requestData() {
         model.loadBookingInfo()
+    }
+
+    private fun showErrorToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        fieldsValidator.cleanup()
+        touristInfoManager.cleanup()
+        super.onDestroyView()
     }
 }

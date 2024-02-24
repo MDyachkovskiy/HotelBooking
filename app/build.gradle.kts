@@ -82,4 +82,6 @@ dependencies {
     //Navigation
     implementation (Navigation.fragment_ktx)
     implementation (Navigation.ui_ktx)
+
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:3.0-alpha-1")
 }

@@ -1,4 +1,4 @@
-package com.test.application.features
+package com.test.application.features.view_inflating
 
 import android.content.Context
 import android.content.res.Resources
@@ -8,9 +8,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.test.application.core.utilities.getOrdinalTourist
 import com.test.application.databinding.TouristInfoBlockBinding
+import com.test.application.features.animation.AnimationHelper
 
 class TouristInfoManager(
-    private val context: Context?, private val container: ConstraintLayout
+    private var context: Context?,
+    private val container: ConstraintLayout
 ) {
     private var lastAddedView: View? = null
     private var touristCount = 1
@@ -109,5 +111,10 @@ class TouristInfoManager(
             root.visibility = if (isVisible) View.VISIBLE else View.GONE
             openButtonArrow.rotation = if (isVisible) 0f else 180f
         }
+    }
+
+    fun cleanup() {
+        context = null
+        container.removeAllViews()
     }
 }

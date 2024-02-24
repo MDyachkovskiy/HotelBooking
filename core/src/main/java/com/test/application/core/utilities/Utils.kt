@@ -2,7 +2,6 @@ package com.test.application.core.utilities
 
 import android.content.Context
 import android.content.res.Resources
-import android.text.TextUtils
 import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -43,10 +42,6 @@ fun getOrdinalTourist(touristNumber: Int, resources: Resources): String {
         10 -> resources.getString(R.string.tenth_tourist)
         else -> String.format(resources.getString(R.string.nth_tourist), touristNumber)
     }
-}
-
-fun isValidEmail(target: CharSequence): Boolean {
-    return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches()
 }
 
 fun setupDoneActionForEditText(editText: EditText){

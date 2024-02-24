@@ -18,5 +18,8 @@
     <string name="rating_mock">5</string>
     <string name="rating_name_mock">Превосходно</string>
 
+    //errors
+    <string name="email_strategy_error">Не определена стратегия для валидации электронной почты</string>
+    <string name="phone_strategy_error">Не определена стратегия для валидации номера телефона</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.test.application.features
+package com.test.application.features.animation
 
 import android.animation.ObjectAnimator
 import android.view.View
