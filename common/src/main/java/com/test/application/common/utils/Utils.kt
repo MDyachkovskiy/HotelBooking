@@ -1,4 +1,4 @@
-package com.test.application.core.utilities
+package com.test.application.common.utils
 
 import android.content.Context
 import android.content.res.Resources
@@ -6,7 +6,7 @@ import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.test.application.core.R
+import com.test.application.common.R
 import java.text.NumberFormat
 import java.util.Locale
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
-import com.test.application.core.utilities.getOrdinalTourist
 import com.test.application.databinding.TouristInfoBlockBinding
 import com.test.application.utils.animation.AnimationHelper
 import java.lang.ref.WeakReference
@@ -65,7 +64,7 @@ class TouristInfoManager(
         touristBlockBinding: TouristInfoBlockBinding, touristCount: Int
     ) {
         touristBlockBinding.touristInformationBlockTitle.text =
-            getOrdinalTourist(touristCount, resources)
+            com.test.application.common.utils.getOrdinalTourist(touristCount, resources)
     }
 
     private fun setLayoutTopMargin(touristInfoBlock: View) {
@@ -73,7 +72,7 @@ class TouristInfoManager(
             ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT
         ).apply {
             topMargin =
-                resources.getDimension(com.test.application.core.R.dimen.margin_8dp_small).toInt()
+                resources.getDimension(com.test.application.common.R.dimen.margin_8dp_small).toInt()
         }
         touristInfoBlock.layoutParams = layoutParams
     }
@@ -86,7 +85,7 @@ class TouristInfoManager(
             ConstraintSet.TOP,
             lastAddedView?.id ?: ConstraintSet.PARENT_ID,
             if (lastAddedView == null) ConstraintSet.TOP else ConstraintSet.BOTTOM,
-            resources.getDimension(com.test.application.core.R.dimen.margin_8dp_small).toInt()
+            resources.getDimension(com.test.application.common.R.dimen.margin_8dp_small).toInt()
         )
 
         constraintSet.connect(

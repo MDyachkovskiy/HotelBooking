@@ -1,25 +1,23 @@
 package com.test.application.room_list.adapter
 
 import android.content.Context
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.chip.Chip
-import com.google.android.material.shape.CornerFamily
+import com.test.application.common.utils.ChipInflaterManager
+import com.test.application.common.utils.formatPrice
 import com.test.application.core.domain.Room
-import com.test.application.core.utilities.formatPrice
 import com.test.application.room_list.R
 import com.test.application.room_list.databinding.ItemRoomBinding
 
 class RoomListAdapter(
-    private val context: Context
+    private var context: Context?
 ) : RecyclerView.Adapter<RoomListAdapter.RoomViewHolder>() {
 
     private var rooms: List<Room> = listOf()
     var listener: (() -> Unit)? = null
+    lateinit var chipInflaterManager: ChipInflaterManager
 
     fun updateData(newRooms: List<Room>) {
         val diffcallback = Diffcallback(rooms, newRooms)
@@ -43,30 +41,15 @@ class RoomListAdapter(
 
         private fun initPeculiaritiesChips(peculiarities: List<String>?) {
             val chipGroup = binding.roomPeculiarities
-            chipGroup.removeAllViews()
+            chipInflaterManager = ChipInflaterManager(context)
 
-            peculiarities?.forEach { peculiarity ->
-                val chip = Chip(context).apply {
-                    text = peculiarity
-                    isCheckable = false
-
-                    setChipBackgroundColorResource(R.color.peculiarities_chip_background)
-                    val shapeAppearanceModel = shapeAppearanceModel.toBuilder()
-                        .setAllCorners(CornerFamily.ROUNDED,
-                            resources.getDimension(R.dimen.chip_corner_radius))
-                        .build()
-                    this.shapeAppearanceModel = shapeAppearanceModel
-                    chipStrokeWidth = 0f
-                    chipStartPadding = resources.getDimension(R.dimen.margin_10dp_small)
-                    chipEndPadding = resources.getDimension(R.dimen.margin_10dp_small)
-
-                    setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-                    setTextColor(resources.getColor(R.color.peculiarities_text_color, null))
-                    typeface = ResourcesCompat.getFont(context,
-                        com.test.application.core.R.font.sf_pro_display_500)
-                    lineHeight = resources.getDimensionPixelSize(R.dimen.chip_line_height)
-                }
-                chipGroup.addView(chip)
+            val chipLayoutResId = R.layout.item_chip
+            peculiarities?.let {
+                chipInflaterManager.addPeculiaritiesChips(
+                    it,
+                    chipGroup,
+                    chipLayoutResId
+                )
             }
         }
 
@@ -82,7 +65,8 @@ class RoomListAdapter(
         private fun initTextInformation(room: Room) {
             with(binding) {
                 tvRoomName.text = room.name
-                tvPrice.text = formatPrice(room.price, context.resources)
+                tvPrice.text =
+                    context?.let { formatPrice(room.price, it.resources) }
                 tvPriceDescription.text = room.pricePer
             }
         }
@@ -99,5 +83,9 @@ class RoomListAdapter(
 
     override fun onBindViewHolder(holder: RoomViewHolder, position: Int) {
         holder.bind(rooms[position])
+    }
+
+    fun cleanup() {
+        context = null
     }
 }

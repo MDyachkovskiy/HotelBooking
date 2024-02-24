@@ -37,7 +37,6 @@ abstract class BaseFragment<T: AppState, I, VB : ViewBinding>(
     abstract fun findProgressBar(): FrameLayout
 
     override fun onDestroyView() {
-        progressBar?.clearAnimation()
         progressBar = null
         _binding = null
         super.onDestroyView()

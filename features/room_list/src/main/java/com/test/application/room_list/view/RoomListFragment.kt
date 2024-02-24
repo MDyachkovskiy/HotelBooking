@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
+import com.test.application.common.utils.HOME_FRAGMENT_ARG
 import com.test.application.core.domain.Room
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
@@ -32,7 +32,7 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
         initButtons()
         initRecyclerView()
         super.onViewCreated(view, savedInstanceState)
-        val hotelName = arguments?.getString("hotelName")
+        val hotelName = arguments?.getString(HOME_FRAGMENT_ARG)
         initFragmentTitle(hotelName)
     }
 
@@ -52,9 +52,6 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
 
         roomListAdapter = RoomListAdapter(requireContext())
         recyclerView.adapter = roomListAdapter
-
-        val snapHelperRoom =PagerSnapHelper()
-        snapHelperRoom.attachToRecyclerView(recyclerView)
 
         roomListAdapter.listener = {
             (activity as? Navigator)?.navigateFromRoomListToBooking()
@@ -85,6 +82,8 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
     }
 
     override fun onDestroyView() {
+        roomListAdapter.chipInflaterManager.cleanup()
+        roomListAdapter.cleanup()
         binding.roomRecyclerView.adapter = null
         super.onDestroyView()
     }

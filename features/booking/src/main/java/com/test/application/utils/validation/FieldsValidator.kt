@@ -14,12 +14,12 @@ class FieldsValidator(
 ) {
 
     private val errorColor: Int by lazy {
-        context?.let { ContextCompat.getColor(it, com.test.application.core.R.color.edit_text_alert) }
+        context?.let { ContextCompat.getColor(it, com.test.application.common.R.color.edit_text_alert) }
             ?: Color.RED
     }
 
     private val defaultColor: Int by lazy {
-        context?.let { ContextCompat.getColor(it, com.test.application.core.R.color.edit_text_background) }
+        context?.let { ContextCompat.getColor(it, com.test.application.common.R.color.edit_text_background) }
             ?: Color.GREEN
     }
 
@@ -81,7 +81,7 @@ class FieldsValidator(
     fun validateEmail(emailLayout: TextInputLayout): Boolean {
         val strategy = strategies[R.id.et_email] ?:
         throw IllegalArgumentException(
-            context?.getString(com.test.application.core.R.string.email_strategy_error))
+            context?.getString(com.test.application.common.R.string.email_strategy_error))
         val isValid = strategy.validate(emailLayout)
         setFieldColorBasedOnValidation(emailLayout, isValid)
         return isValid
@@ -90,7 +90,7 @@ class FieldsValidator(
     fun validatePhoneNumber(phoneLayout: TextInputLayout): Boolean {
         val strategy = strategies[R.id.et_phone_number] ?:
         throw IllegalArgumentException(
-            context?.getString(com.test.application.core.R.string.phone_strategy_error))
+            context?.getString(com.test.application.common.R.string.phone_strategy_error))
         val isValid = strategy.validate(phoneLayout)
         setFieldColorBasedOnValidation(phoneLayout, isValid)
         return isValid

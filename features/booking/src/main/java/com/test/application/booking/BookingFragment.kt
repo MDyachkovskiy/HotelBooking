@@ -14,8 +14,6 @@ import com.test.application.R
 import com.test.application.core.domain.Booking
 import com.test.application.core.navigation.Navigator
 import com.test.application.core.utilities.AppState
-import com.test.application.core.utilities.formatExactPrice
-import com.test.application.core.utilities.setupDoneActionForEditText
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import com.test.application.databinding.TouristInfoBlockBinding
@@ -24,6 +22,8 @@ import com.test.application.utils.validation.FieldsValidator
 import com.test.application.utils.view_inflating.TouristInfoManager
 import com.test.application.common.calculateTotalTourPrice
 import com.test.application.common.formatTourDate
+import com.test.application.common.utils.formatExactPrice
+import com.test.application.common.utils.setupDoneActionForEditText
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,7 +46,10 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     }
 
     private fun initButtons(data: Booking) {
-        val totalPrice = formatExactPrice(calculateTotalTourPrice(data), resources)
+        val totalPrice = formatExactPrice(
+            calculateTotalTourPrice(data),
+            resources
+        )
         binding.payButton.text = getString(R.string.pay_button_text, totalPrice)
     }
 
@@ -71,10 +74,16 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     private fun setPriceInformation(data: Booking) {
         resources = requireContext().resources
         with(binding) {
-            tvTourPrice.text = formatExactPrice(data.tourPrice, resources)
-            tvFuelCharge.text = formatExactPrice(data.fuelCharge, resources)
-            tvServiceCharge.text = formatExactPrice(data.serviceCharge, resources)
-            tvTotalPrice.text = formatExactPrice(calculateTotalTourPrice(data), resources)
+            tvTourPrice.text =
+                formatExactPrice(data.tourPrice, resources)
+            tvFuelCharge.text =
+                formatExactPrice(data.fuelCharge, resources)
+            tvServiceCharge.text =
+                formatExactPrice(data.serviceCharge, resources)
+            tvTotalPrice.text = formatExactPrice(
+                calculateTotalTourPrice(data),
+                resources
+            )
         }
     }
 

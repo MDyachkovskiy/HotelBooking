@@ -16,8 +16,8 @@ class RoomImageAdapter(
         fun bind(imageUrl: String) {
             binding.imageView.load(imageUrl) {
                 crossfade(true)
-                placeholder(com.test.application.core.R.drawable.default_placeholder)
-                error(com.test.application.core.R.drawable.default_placeholder)
+                placeholder(com.test.application.common.R.drawable.default_placeholder)
+                error(com.test.application.common.R.drawable.default_placeholder)
             }
         }
     }

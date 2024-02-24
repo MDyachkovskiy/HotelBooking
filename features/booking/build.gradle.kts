@@ -38,6 +38,7 @@ android {
 dependencies {
 
     implementation (project(":core"))
+    implementation (project(":common"))
 
     //Kotlin
     implementation ("androidx.core:core-ktx:1.12.0")

@@ -39,6 +39,7 @@ dependencies {
 
     //Modules
     implementation (project(":core"))
+    implementation (project(":common"))
 
     //Kotlin
     implementation(Kotlin.core)
