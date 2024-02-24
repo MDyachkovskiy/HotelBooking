@@ -1,4 +1,4 @@
-package com.test.application.utils
+package com.test.application.common
 
 import com.test.application.core.domain.Booking
 

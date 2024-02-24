@@ -1,4 +1,4 @@
-package com.test.application.features.view_inflating
+package com.test.application.utils.view_inflating
 
 import android.content.Context
 import android.content.res.Resources
@@ -8,12 +8,15 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.test.application.core.utilities.getOrdinalTourist
 import com.test.application.databinding.TouristInfoBlockBinding
-import com.test.application.features.animation.AnimationHelper
+import com.test.application.utils.animation.AnimationHelper
+import java.lang.ref.WeakReference
 
 class TouristInfoManager(
-    private var context: Context?,
-    private val container: ConstraintLayout
+    context: Context?,
+    container: ConstraintLayout
 ) {
+    private var contextRef = WeakReference(context)
+    private val containerRef = WeakReference(container)
     private var lastAddedView: View? = null
     private var touristCount = 1
     private val resources: Resources = context!!.resources
@@ -46,7 +49,7 @@ class TouristInfoManager(
 
     private fun createTouristInfoBlock(): TouristInfoBlockBinding {
         val touristInfoBlockBinding = TouristInfoBlockBinding.inflate(
-            LayoutInflater.from(context), container, false
+            LayoutInflater.from(contextRef.get()), containerRef.get(), false
         )
         if (touristInfoBlockBinding.root.id == View.NO_ID) {
             touristInfoBlockBinding.root.id = View.generateViewId()
@@ -55,7 +58,7 @@ class TouristInfoManager(
     }
 
     private fun addTouristBlockToContainer(touristInfoBlock: View) {
-        container.addView(touristInfoBlock)
+        containerRef.get()?.addView(touristInfoBlock)
     }
 
     private fun updateTouristTitle(
@@ -77,7 +80,7 @@ class TouristInfoManager(
 
     private fun updateLayoutConstraints(touristInfoBlock: View) {
         val constraintSet = ConstraintSet()
-        constraintSet.clone(container)
+        constraintSet.clone(containerRef.get())
         constraintSet.connect(
             touristInfoBlock.id,
             ConstraintSet.TOP,
@@ -101,7 +104,7 @@ class TouristInfoManager(
             0
         )
 
-        constraintSet.applyTo(container)
+        constraintSet.applyTo(containerRef.get())
     }
 
     private fun setInitialVisibility(
@@ -114,7 +117,8 @@ class TouristInfoManager(
     }
 
     fun cleanup() {
-        context = null
-        container.removeAllViews()
+        contextRef.clear()
+        containerRef.clear()
+        lastAddedView = null
     }
 }

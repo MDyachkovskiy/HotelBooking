@@ -83,4 +83,9 @@ class RoomListFragment : BaseFragment<AppState, List<Room>, FragmentRoomListBind
     override fun setupData(data: List<Room>) {
         roomListAdapter.updateData(data)
     }
+
+    override fun onDestroyView() {
+        binding.roomRecyclerView.adapter = null
+        super.onDestroyView()
+    }
 }

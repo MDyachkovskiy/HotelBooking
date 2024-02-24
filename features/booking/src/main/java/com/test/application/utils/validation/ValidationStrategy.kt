@@ -1,4 +1,4 @@
-package com.test.application.features.validation
+package com.test.application.utils.validation
 
 import com.google.android.material.textfield.TextInputLayout
 

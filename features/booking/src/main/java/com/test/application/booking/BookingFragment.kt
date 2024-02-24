@@ -19,11 +19,11 @@ import com.test.application.core.utilities.setupDoneActionForEditText
 import com.test.application.core.view.BaseFragment
 import com.test.application.databinding.FragmentBookingBinding
 import com.test.application.databinding.TouristInfoBlockBinding
-import com.test.application.features.animation.AnimationHelper
-import com.test.application.features.validation.FieldsValidator
-import com.test.application.features.view_inflating.TouristInfoManager
-import com.test.application.utils.calculateTotalTourPrice
-import com.test.application.utils.formatTourDate
+import com.test.application.utils.animation.AnimationHelper
+import com.test.application.utils.validation.FieldsValidator
+import com.test.application.utils.view_inflating.TouristInfoManager
+import com.test.application.common.calculateTotalTourPrice
+import com.test.application.common.formatTourDate
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

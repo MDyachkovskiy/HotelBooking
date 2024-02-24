@@ -1,4 +1,4 @@
-package com.test.application.features.validation
+package com.test.application.utils.validation
 
 import android.content.Context
 import android.graphics.Color
@@ -45,18 +45,22 @@ class FieldsValidator(
         allFields.add(emailLayout)
         allFields.add(phoneLayout)
 
-        return allFields.all { field ->
+        var allValid = true
+
+        allFields.forEach { field ->
             val strategy = strategies[field.id] ?: BasicValidationStrategy()
             val isValid = strategy.validate(field)
             setFieldColorBasedOnValidation(field, isValid)
-            isValid
+            if (!isValid) allValid = false
         }
+
+        return allValid
     }
 
     private fun getAllFields(initialBlock: View, dynamicContainer: ViewGroup): List<TextInputLayout> {
         val initialFields = getTextInputsFromBlock(initialBlock)
         val dynamicFields = mutableListOf<TextInputLayout>()
-        for (i in 1 until dynamicContainer.childCount) {
+        for (i in 0 until dynamicContainer.childCount) {
             val child = dynamicContainer.getChildAt(i)
             dynamicFields.addAll(getTextInputsFromBlock(child))
         }
