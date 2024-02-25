@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_rating_block"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/margin_10dp_small"
+    android:paddingVertical="@dimen/margin_5dp_small"
+    tools:ignore="ContentDescription">
+
+    <ImageView
+        android:layout_width="@dimen/rating_icon_size"
+        android:layout_height="@dimen/rating_icon_size"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_star" />
+
+    <TextView
+        android:id="@+id/tv_rating"
+        style="@style/rating_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/margin_2dp_small"
+        android:text="@string/rating_mock" />
+
+    <TextView
+        android:id="@+id/tv_rating_name"
+        style="@style/rating_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/margin_2dp_small"
+        android:text="@string/rating_name_mock" />
+
+</LinearLayout>

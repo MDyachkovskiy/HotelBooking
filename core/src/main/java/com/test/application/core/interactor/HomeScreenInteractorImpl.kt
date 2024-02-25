@@ -1,7 +1,7 @@
 package com.test.application.core.interactor
 
 import com.test.application.core.domain.Hotel
-import com.test.application.remote_data.repository.HotelRepository
+import com.test.application.core.repository.HotelRepository
 
 class HomeScreenInteractorImpl(
     private val repositoryRemote: HotelRepository<Hotel>

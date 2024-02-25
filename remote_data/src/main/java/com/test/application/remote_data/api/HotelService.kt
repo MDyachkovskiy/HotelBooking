@@ -1,7 +1,7 @@
 package com.test.application.remote_data.api
 
-import com.test.application.core.utilities.HOTEL_URL
 import com.test.application.remote_data.dto.HotelDTO
+import com.test.application.remote_data.utils.HOTEL_URL
 import retrofit2.http.GET
 
 interface HotelService {

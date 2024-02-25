@@ -1,7 +1,7 @@
 package com.test.application.core.interactor
 
 import com.test.application.core.domain.Booking
-import com.test.application.remote_data.repository.BookingRepository
+import com.test.application.core.repository.BookingRepository
 
 class BookingScreenInteractorImpl(
     private val repositoryRemote: BookingRepository<Booking>
