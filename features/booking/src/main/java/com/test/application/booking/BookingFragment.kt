@@ -2,6 +2,7 @@ package com.test.application.booking
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
@@ -24,6 +25,7 @@ import com.test.application.common.calculateTotalTourPrice
 import com.test.application.common.formatTourDate
 import com.test.application.common.utils.formatExactPrice
 import com.test.application.common.utils.setupDoneActionForEditText
+import com.test.application.utils.date_picker.DatePicker
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -34,6 +36,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
     private val model: BookingViewModel by viewModel()
     private lateinit var touristInfoManager: TouristInfoManager
     private val fieldsValidator: FieldsValidator by lazy { FieldsValidator(requireContext()) }
+    private val datePicker: DatePicker by lazy { DatePicker(requireContext()) }
     private lateinit var resources: Resources
 
     override fun findProgressBar(): FrameLayout {
@@ -103,6 +106,26 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
         setupInitialTouristBlock()
         setupPhoneEditText()
         setupEmailEditText()
+        setupDateEditText()
+    }
+
+    private fun setupDateEditText() {
+        with(binding.initialTouristBlock) {
+            editTextBirthDate.setOnFocusChangeListener { view, hasFocus ->
+                if(hasFocus) {
+                    Log.d("@@@", "DatePicker Attempting to show date picker for birth date")
+                    datePicker.pickDate(editTextBirthDate)
+                    view.clearFocus()
+                }
+            }
+            editTextPassportExpiringDate.setOnFocusChangeListener { view, hasFocus ->
+                if(hasFocus) {
+                    Log.d("@@@", "DatePicker Attempting to show date picker for passport expiring date")
+                    datePicker.pickDate(editTextPassportExpiringDate)
+                    view.clearFocus()
+                }
+            }
+        }
     }
 
     private fun setupButtons() {
@@ -197,6 +220,7 @@ class BookingFragment : BaseFragment<AppState, Booking, FragmentBookingBinding>(
 
     override fun onDestroyView() {
         fieldsValidator.cleanup()
+        datePicker.cleanup()
         touristInfoManager.cleanup()
         super.onDestroyView()
     }

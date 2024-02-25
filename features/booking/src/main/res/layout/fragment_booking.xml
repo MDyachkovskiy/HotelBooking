@@ -382,7 +382,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/client_information_block">
 
-                <include layout="@layout/tourist_info_block" />
+                <include
+                    android:id="@+id/initial_tourist_block"
+                    layout="@layout/tourist_info_block" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
