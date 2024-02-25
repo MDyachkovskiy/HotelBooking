@@ -8,7 +8,6 @@
 <img src="https://gdurl.com/0c-g" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/KkP8" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/eHLm" alt="project-screenshot" width="200" height="400/">
 <img src="https://gdurl.com/7TwZ" alt="project-screenshot" width="200" height="400/"> <img src="https://gdurl.com/a008" alt="project-screenshot" width="200" height="400/">
 
-<h2>Особенности</h2> 
 <h2>Экран Отеля</h2> 
 
 <table>
